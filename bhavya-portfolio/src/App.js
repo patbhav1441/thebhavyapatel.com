@@ -44,9 +44,69 @@ const Portfolio = () => {
     ],
     experience: [
       {
-        company: "Kennesaw State University - SGA",
-        title: "IT Role Intern & Senator of CCSE",
-        dateRange: "Sept 2025 - Present",
+        company: "Kennesaw State University - Student Government Association",
+        title: "Senator of CCSE",
+        dateRange: "Nov 2025 - Present",
+        bullets: [
+          "cool fact #1",
+          "cool fact #2",
+          "cool fact #3"
+        ]
+      },
+      {
+        company: "DECA",
+        title: "Chapter Awards Officer",
+        dateRange: "Sep 2024 - May 2025",
+        bullets: [
+          "cool fact #1",
+          "cool fact #2",
+          "cool fact #3"
+        ]
+      },
+      {
+        company: "American Society of Mechanical Engineers (ASME)",
+        title: "Apprentice Marketing Officer",
+        dateRange: "Sep 2025 - Present",
+        bullets: [
+          "cool fact #1",
+          "cool fact #2",
+          "cool fact #3"
+        ]
+      },
+      {
+        company: "Kennesaw Indian Students Organization (KISO)",
+        title: "Secretary",
+        dateRange: "Jun 2025 - Present",
+        bullets: [
+          "cool fact #1",
+          "cool fact #2",
+          "cool fact #3"
+        ]
+      },
+      {
+        company: "QuantumRise Foundation",
+        title: "Co-Founder and CEO",
+        dateRange: "Nov 2025 - Present",
+        bullets: [
+          "cool fact #1",
+          "Cool fact #2",
+          "https://quantumrisefoundation.org"
+        ]
+      },
+      {
+        company: "Student Managed Investment Fund (SMIF)",
+        title: "Junior Analyst",
+        dateRange: "Oct 2025 - Present",
+        bullets: [
+          "cool fact #1",
+          "cool fact #2",
+          "cool fact #3"
+        ]
+      },
+      {
+        company: "Kennesaw State University - Student Government Association",
+        title: "IT Role Intern",
+        dateRange: "Sep 2025 - Present",
         bullets: [
           "Serving the IT committee in SGA and contributing to projects under the director",
           "Bridging the gap between students and faculty members as Senator",
