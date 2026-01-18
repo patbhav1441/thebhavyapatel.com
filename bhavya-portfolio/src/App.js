@@ -45,12 +45,12 @@ const Portfolio = () => {
     experience: [
       {
         company: "Kennesaw State University - Student Government Association",
-        title: "Senator of CCSE",
+        title: "Senator of College of Computing and Software Engineering",
         dateRange: "Nov 2025 - Present",
         bullets: [
-          "cool fact #1",
-          "cool fact #2",
-          "cool fact #3"
+          "Represent CCSE students by collecting feedback, advocating for academic and campus needs, and communicating updates back to the college.",
+          "Collaborate with SGA leaders to draft, debate, and vote on initiatives that improve student experience and engagement.",
+          "Help plan and support student-facing events, outreach efforts, and initiatives across CCSE."
         ]
       },
       {
@@ -58,9 +58,9 @@ const Portfolio = () => {
         title: "Chapter Awards Officer",
         dateRange: "Sep 2024 - May 2025",
         bullets: [
-          "cool fact #1",
-          "cool fact #2",
-          "cool fact #3"
+          "Tracked chapter achievements and submitted award applications while keeping records organized and deadline-ready.",
+          "Coordinated with officers and members to document participation, competitions, and service impact for recognition.",
+          "Supported chapter operations by assisting with event planning, communication, and member engagement."
         ]
       },
       {
@@ -68,9 +68,9 @@ const Portfolio = () => {
         title: "Apprentice Marketing Officer",
         dateRange: "Sep 2025 - Present",
         bullets: [
-          "cool fact #1",
-          "cool fact #2",
-          "cool fact #3"
+          "Create and schedule content that promotes meetings, workshops, and projects to grow attendance and membership.",
+          "Design flyers, posts, and announcements while maintaining consistent branding across platforms.",
+          "Support outreach efforts by partnering with other orgs and highlighting member projects and accomplishments."
         ]
       },
       {
@@ -78,19 +78,19 @@ const Portfolio = () => {
         title: "Secretary",
         dateRange: "Jun 2025 - Present",
         bullets: [
-          "cool fact #1",
-          "cool fact #2",
-          "cool fact #3"
+          "Record meeting notes, maintain documentation, and share clear action items to keep the org organized.",
+          "Manage communications and coordination for events, including logistics, scheduling, and member updates.",
+          "Support leadership by tracking plans, deadlines, and follow-ups to ensure smooth execution."
         ]
       },
       {
         company: "QuantumRise Foundation",
-        title: "Co-Founder and CEO",
+        title: "Founder and CEO",
         dateRange: "Nov 2025 - Present",
         bullets: [
-          "cool fact #1",
-          "Cool fact #2",
-          "https://quantumrisefoundation.org"
+          "Lead strategy and operations for a student-led nonprofit focused on developing & configuring website.",
+          "Build partnerships and oversee programs, content, and community outreach to scale impact.",
+          "Manage the organization’s public presence and platform development at quantumrisefoundation.org."
         ]
       },
       {
@@ -98,9 +98,9 @@ const Portfolio = () => {
         title: "Junior Analyst",
         dateRange: "Oct 2025 - Present",
         bullets: [
-          "cool fact #1",
-          "cool fact #2",
-          "cool fact #3"
+          "Conduct equity research by analyzing financial statements, valuation metrics, and industry trends to support investment decisions.",
+          "Monitor assigned holdings and market news, providing updates that inform portfolio adjustments.",
+          "Oversee over ~$530,000 in investments along with other analysts."
         ]
       },
       {
@@ -188,7 +188,7 @@ const Portfolio = () => {
       {
         school: "Kennesaw State University (Honors)",
         degree: "Bachelor's Degree in Progress",
-        dateRange: "2025 - ~2028",
+        dateRange: "2025 - 2028",
         achievements: [
           "Current GPA: 4.0",
           "Secretary of KISO (Kennesaw Indian Students Organization)",
@@ -217,7 +217,8 @@ const Portfolio = () => {
       { name: "NOCTI Java Programming", issuer: "NOCTI" },
       { name: "Responsive Web Design", issuer: "FreeCodeCamp" },
       { name: "Real Estate Salesperson License", issuer: "RealEstateU" },
-      { name: "GA Real Estate License Examination", issuer: "Passed on 1st attempt" }
+      { name: "GA Real Estate License Examination", issuer: "PSI" },
+      { name: "Bloomberg Market Concepts", issuer: "Bloomberg"}
     ]
   };
 
@@ -459,7 +460,7 @@ const Portfolio = () => {
       {/* Footer */}
       <footer className="py-8 px-6 bg-slate-900 text-white text-center">
         <p className="text-slate-400">
-          © 2025 {config.name}. Built with React & Tailwind CSS.
+          © 2026 {config.name}. Built with React & Tailwind CSS.
         </p>
       </footer>
     </div>
