@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Linkedin, Github, Twitter, ExternalLink, Menu, X, Award } from 'lucide-react';
+import { Mail, Linkedin, Github, ExternalLink, Menu, X, Award } from 'lucide-react';
 
 const Portfolio = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -56,7 +56,7 @@ const Portfolio = () => {
     ],
     testimonials: [
       {
-        name: "Dr. Jane Smith",
+        name: "Dr. Yong Shi",
         role: "Research Mentor",
         quote: "Bhavya brings a rare combination of curiosity, technical skill, and execution. He takes initiative and follows through."
       },
@@ -92,7 +92,7 @@ const Portfolio = () => {
           "Built and managed the organization’s public presence, including website development, content, and digital outreach for quantumrisefoundation.org.",
           "Develop partnerships, shape programs, and oversee community-facing initiatives to grow visibility, engagement, and long term impact.",
           "Design and test hands-on technology access programs, including equipment lending and rental concepts for students, schools, and other interested groups.",
-          "*Currently operating independently and open to bringing on mission-aligned cofounders or officers to support growth, programming, and execution.*"
+          "Currently operating independently and open to bringing on mission-aligned cofounders or officers to support growth, programming, and execution.*"
         ]
       },
       {
@@ -258,7 +258,7 @@ const Portfolio = () => {
           "GPA: 4.26",
           "Scholar-Athlete Award (Wrestling)",
           "DECA Chapter Awards Officer",
-          "13 AP Courses: Statistics, Calculus AB, Literature, Lang & Comp, Psychology, US History, World History, Biology, Physics C, Physics A-1, Microeconomics, Government, Computer Science, Human Geography"
+          "14 AP Courses: Statistics, Calculus AB, Literature, Lang & Comp, Psychology, US History, World History, Biology, Physics C, Physics A-1, Microeconomics, Government, Computer Science, Human Geography"
         ]
       }
     ],
@@ -306,6 +306,7 @@ const Portfolio = () => {
             <button 
               className="md:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -344,6 +345,7 @@ const Portfolio = () => {
             {config.social.email && (
               <a 
                 href={`mailto:${config.social.email}`}
+                aria-label="Email Bhavya Patel"
                 className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition"
                 style={{ color: config.accentColor }}
               >
@@ -353,6 +355,7 @@ const Portfolio = () => {
             {config.social.linkedin && (
               <a 
                 href={config.social.linkedin}
+                aria-label="Visit LinkedIn"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition"
@@ -364,6 +367,7 @@ const Portfolio = () => {
             {config.social.github && (
               <a 
                 href={config.social.github}
+                aria-label="Visit GitHub"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition"
