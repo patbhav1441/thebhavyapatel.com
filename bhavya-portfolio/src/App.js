@@ -25,23 +25,53 @@ const Portfolio = () => {
       },
       {
         name: "Book Recommender Program",
-        description: "Program using vector search and BERT model to classify books based on seven common emotions. Hosted on local network using Gradio interface and integrated with Gemini API.",
+        description: "Built an AI-powered book recommendation system that combines semantic vector search with emotion classification to surface titles that match a reader’s interests and mood. Integrated a BERT-based emotion model, a Gradio interface for interaction, and Gemini API support to make recommendations more dynamic and personalized.",
         link: "https://github.com/bhavyapatel",
-        skills: ["Python", "BERT", "Gradio", "Gemini API", "Vector Search"]
+        skills: ["Python", "NLP", "BERT", "Vector Search", "Gradio"]
       },
       {
         name: "GHP (Gwinnett Housing Prediction)",
-        description: "Housing price prediction program for Gwinnett County using machine learning. Built with Python libraries including Pandas and NumPy, utilizing Google Colab for development.",
+        description: "Developed a machine learning project to analyze housing data and predict home values in Gwinnett County. Cleaned and explored real estate datasets, engineered features, and evaluated predictive models in Python to better understand pricing patterns and key market drivers.",
         link: "https://github.com/bhavyapatel",
-        skills: ["Python", "Pandas", "NumPy", "Machine Learning", "Data Analysis"]
+        skills: ["Python", "Machine Learning", "Pandas", "Data Analysis", "Feature Engineering"]
       },
       {
         name: "Personal Website Hosting",
-        description: "Hosted personal website on Raspberry Pi using nginx to serve files via public IP address. Configured port forwarding and utilized Linux command line for server management.",
+        description: "Deployed and maintained a personal portfolio website on a Raspberry Pi home server, configuring domain routing, HTTPS, and port forwarding for public access. Managed the Linux environment, build pipeline, and production hosting setup to keep the site accessible and reliable. (Utilized Cloudflare to host the website later on, since hosting a website on pi was less reliable than I thought it would be.)",
         link: "https://github.com/bhavyapatel",
-        skills: ["Linux", "nginx", "Raspberry Pi", "Networking"]
+        skills: ["Linux", "Caddy", "Raspberry Pi", "Networking", "Web Hosting", "Cloudflare Setup"]
       }
     ],
+        videos: [
+      {
+        title: "Quantum Rise Foundation Overview",
+        embedUrl: "https://www.youtube.com/embed/VIDEO_ID_1",
+        description: "Overview of the mission, goals, and impact of the foundation."
+      },
+      {
+        title: "Agentic AI Demo",
+        embedUrl: "https://www.youtube.com/embed/VIDEO_ID_2",
+        description: "Demo of the local AI workflow, edge deployment, and core features."
+      }
+    ],
+    testimonials: [
+      {
+        name: "Dr. Jane Smith",
+        role: "Research Mentor",
+        quote: "Bhavya brings a rare combination of curiosity, technical skill, and execution. He takes initiative and follows through."
+      },
+      {
+        name: "John Doe",
+        role: "Project Collaborator",
+        quote: "Working with Bhavya was seamless. He is thoughtful, organized, and consistently delivers polished work."
+      },
+      {
+        name: "Aisha Patel",
+        role: "Student Leader",
+        quote: "Bhavya adds real energy to every team he joins. He communicates clearly, solves problems fast, and supports others well."
+      }
+    ],
+    
     experience: [
       {
         company: "Kennesaw State University - Student Government Association",
@@ -54,13 +84,35 @@ const Portfolio = () => {
         ]
       },
       {
-        company: "DECA",
-        title: "Chapter Awards Officer",
-        dateRange: "Sep 2024 - May 2025",
+        company: "QuantumRise Foundation",
+        title: "Founder and CEO",
+        dateRange: "Nov 2025 - Present",
         bullets: [
-          "Tracked chapter achievements and submitted award applications while keeping records organized and deadline-ready.",
-          "Coordinated with officers and members to document participation, competitions, and service impact for recognition.",
-          "Supported chapter operations by assisting with event planning, communication, and member engagement."
+          "Lead strategy, operations, and platform development as the sole founder of a student-led initiative focused on expanding access to emerging technology.",
+          "Built and managed the organization’s public presence, including website development, content, and digital outreach for quantumrisefoundation.org.",
+          "Develop partnerships, shape programs, and oversee community-facing initiatives to grow visibility, engagement, and long term impact.",
+          "Design and test hands-on technology access programs, including equipment lending and rental concepts for students, schools, and other interested groups.",
+          "*Currently operating independently and open to bringing on mission-aligned cofounders or officers to support growth, programming, and execution.*"
+        ]
+      },
+      {
+        company: "StuddyBuddy App",
+        title: "Founder and Product Lead",
+        dateRange: "Dec 2025 - Present",
+        bullets: [
+          "Built an iOS app designed to help students study more effectively by combining academic support with social matching.",
+          "Developed features for finding study partners by course and shared interests, making it easier for students to connect with people who match their goals and schedules.",
+          "Shaped the product vision, user experience, and feature roadmap for tools such as course-based matching, group communication, and AI-supported study assistance."
+        ]
+      },
+      {
+        company: "Kennesaw State University Information Technology Advisory Committee",
+        title: "Student Representative, SGA",
+        dateRange: "Dec 2025 - Present",
+        bullets: [
+          "Serve as a student representative on KSU’s Information Technology Advisory Committee, helping bring student perspectives into university technology discussions and planning.",
+          "Represent student needs and feedback in conversations around technology priorities, digital resources, security, and campus-wide IT initiatives.",
+          "Collaborate with university stakeholders across academic, administrative, and technical areas to support a more effective and innovative technology environment for students."
         ]
       },
       {
@@ -84,53 +136,24 @@ const Portfolio = () => {
         ]
       },
       {
-        company: "QuantumRise Foundation",
-        title: "Founder and CEO",
-        dateRange: "Nov 2025 - Present",
-        bullets: [
-          "Lead strategy and operations for a student-led nonprofit focused on developing & configuring website.",
-          "Build partnerships and oversee programs, content, and community outreach to scale impact.",
-          "Manage the organization’s public presence and platform development at quantumrisefoundation.org."
-        ]
-      },
-      {
         company: "Student Managed Investment Fund (SMIF)",
         title: "Junior Analyst",
-        dateRange: "Oct 2025 - Present",
+        dateRange: "Jan 2025 - Present",
         bullets: [
           "Conduct equity research by analyzing financial statements, valuation metrics, and industry trends to support investment decisions.",
           "Monitor assigned holdings and market news, providing updates that inform portfolio adjustments.",
-          "Oversee over ~$530,000 in investments along with other analysts."
+          "Oversee over ~$530,000 in investments.",
+          "Pitching a market sector or a company to the committee."
         ]
       },
       {
-        company: "Kennesaw State University - Student Government Association",
-        title: "IT Role Intern",
-        dateRange: "Sep 2025 - Present",
-        bullets: [
-          "Serving the IT committee in SGA and contributing to projects under the director",
-          "Bridging the gap between students and faculty members as Senator",
-          "Sending out surveys to students to gather opinions on IT infrastructure at Kennesaw"
-        ]
-      },
-      {
-        company: "System Technology Works",
+        company: "System Technology Works LLC",
         title: "Intern",
         dateRange: "Oct 2025 - Present",
         bullets: [
           "Training LLMs and experimenting with Ollama",
           "Implementing AI models into mechanical systems",
-          "Working extensively with mechatronics and machine learning applications"
-        ]
-      },
-      {
-        company: "Keller Williams | 400 North",
-        title: "Real Estate Agent and Realtor",
-        dateRange: "Oct 2025 - Present",
-        bullets: [
-          "Finding, following up on, and solidifying leads",
-          "Managing client relationships and property transactions",
-          "Licensed Real Estate Salesperson in Georgia"
+          "Working extensively with mechatronics and machine learning applications."
         ]
       },
       {
@@ -140,17 +163,18 @@ const Portfolio = () => {
         bullets: [
           "Developing an agentic AI capable of understanding human behavior and emotion",
           "Creating response systems that adapt to emotional contexts",
-          "Collaborating with research team on AI ethics and implementation"
+          "Collaborating with the research team on AI ethics and implementation.",
+          "Shipped an AI model on an SBC for personal use and developing an iOS app for other students."
         ]
       },
       {
-        company: "KSU - IMPACT Assessment Research",
-        title: "Student Researcher",
+        company: "KSU - IMPACT Assessment Faculty Research",
+        title: "Undergraduate Research Assistant",
         dateRange: "Aug 2025 - Present",
         bullets: [
           "Collecting and filtering data from student surveys",
           "Assessing student performance and setting benchmarks",
-          "Contributing to educational assessment methodologies"
+          "Contributing to educational assessment methodologies."
         ]
       },
       {
@@ -159,8 +183,8 @@ const Portfolio = () => {
         dateRange: "Sep 2025 - Present",
         bullets: [
           "Exploring applications of quantum computing in cybersecurity",
-          "Collecting and analyzing data through hands-on research",
-          "Learning quantum algorithms and their practical implementations"
+          "Built a prediction model, utilizing both a classical model and a quantum-optimized model, to detect phishing emails",
+          "Learning quantum algorithms and their practical implementations."
         ]
       },
       {
@@ -170,29 +194,59 @@ const Portfolio = () => {
         bullets: [
           "Instructed students on Scratch, Python, APCSA/APCSP online",
           "Guided students in constructing robots from Vex IQ",
-          "Developed curriculum materials for programming education"
+          "Developed curriculum materials for programming education."
         ]
       },
       {
         company: "Mathnasium @ North Alpharetta",
         title: "Team Lead",
-        dateRange: "Aug 2025 - Present",
+        dateRange: "Aug 2025 - Mar 2026",
         bullets: [
           "Supervised instructors and maintained quality standards",
           "Graded assessments and provided feedback to students",
-          "Greeted students and parents, ensuring positive learning environment"
+          "Greeted students and parents, ensuring a positive learning environment."
         ]
-      }
+      },
+      {
+        company: "Keller Williams | 400 North",
+        title: "Real Estate Agent and Realtor",
+        dateRange: "Oct 2025 - Mar 2026",
+        bullets: [
+          "Finding, following up on, and solidifying leads",
+          "Managing client relationships and property transactions",
+          "Licensed Real Estate Salesperson in Georgia"
+        ]
+      },
+      {
+        company: "DECA",
+        title: "Chapter Awards Officer",
+        dateRange: "Sep 2024 - May 2025",
+        bullets: [
+          "Tracked chapter achievements and submitted award applications while keeping records organized and deadline-ready.",
+          "Coordinated with officers and members to document participation, competitions, and service impact for recognition.",
+          "Supported chapter operations by assisting with event planning, communication, and member engagement."
+        ]
+      },
+      {
+        company: "Kennesaw State University - Student Government Association",
+        title: "IT Role Intern",
+        dateRange: "Sep 2025 - Dec 2025",
+        bullets: [
+          "Serving the IT committee in SGA and contributing to projects under the director",
+          "Bridging the gap between students and faculty members as Senator",
+          "Sending out surveys to students to gather opinions on IT infrastructure at Kennesaw."
+        ]
+      },
     ],
     education: [
       {
         school: "Kennesaw State University (Honors)",
         degree: "Bachelor's Degree in Progress",
-        dateRange: "2025 - 2028",
+        dateRange: "2025 - 2027",
         achievements: [
           "Current GPA: 4.0",
           "Secretary of KISO (Kennesaw Indian Students Organization)",
-          "Senator of College of Computing and Software Engineering",
+          "Senator of the College of Computing and Software Engineering",
           "Multiple concurrent research positions (VIP, IMPACT, FYSP)"
         ]
       },
@@ -244,6 +298,8 @@ const Portfolio = () => {
               <button onClick={() => scrollToSection('experience')} className="text-slate-600 hover:text-slate-900 transition">Experience</button>
               <button onClick={() => scrollToSection('education')} className="text-slate-600 hover:text-slate-900 transition">Education</button>
               <button onClick={() => scrollToSection('credentials')} className="text-slate-600 hover:text-slate-900 transition">Credentials</button>
+              <button onClick={() => scrollToSection('videos')} className="text-slate-600 hover:text-slate-900 transition">Videos</button>
+              <button onClick={() => scrollToSection('testimonials')} className="text-slate-600 hover:text-slate-900 transition">Testimonials</button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -263,6 +319,8 @@ const Portfolio = () => {
               <button onClick={() => scrollToSection('experience')} className="text-left text-slate-600 hover:text-slate-900 transition">Experience</button>
               <button onClick={() => scrollToSection('education')} className="text-left text-slate-600 hover:text-slate-900 transition">Education</button>
               <button onClick={() => scrollToSection('credentials')} className="text-left text-slate-600 hover:text-slate-900 transition">Credentials</button>
+              <button onClick={() => scrollToSection('videos')} className="text-left text-slate-600 hover:text-slate-900 transition">Videos</button>
+              <button onClick={() => scrollToSection('testimonials')} className="text-left text-slate-600 hover:text-slate-900 transition">Testimonials</button>
             </div>
           )}
         </nav>
@@ -376,6 +434,71 @@ const Portfolio = () => {
                       {skill}
                     </span>
                   ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Videos Section */}
+      <section id="videos" className="py-20 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-3xl font-bold text-slate-900 mb-8">Videos</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            {config.videos.map((video, index) => (
+              <div
+                key={index}
+                className="bg-slate-50 rounded-lg shadow-md hover:shadow-xl transition overflow-hidden"
+              >
+                <div className="aspect-video w-full">
+                  <iframe
+                    src={video.embedUrl}
+                    title={video.title}
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-6">
+                  <h4 className="text-xl font-semibold text-slate-900 mb-2">
+                    {video.title}
+                  </h4>
+                  <p className="text-slate-600">
+                    {video.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-3xl font-bold text-slate-900 mb-8">Testimonials</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {config.testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-md hover:shadow-xl transition p-6"
+              >
+                <p className="text-slate-600 leading-relaxed mb-6 italic">
+                  “{testimonial.quote}”
+                </p>
+                <div>
+                  <h4 className="text-lg font-semibold text-slate-900">
+                    {testimonial.name}
+                  </h4>
+                  <p
+                    className="font-medium"
+                    style={{ color: config.accentColor }}
+                  >
+                    {testimonial.role}
+                  </p>
                 </div>
               </div>
             ))}
