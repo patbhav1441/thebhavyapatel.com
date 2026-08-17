@@ -37,7 +37,9 @@ Use the OAuth App values for the first two. For `OAUTH_STATE_SECRET`, enter a ne
 - Verify: `https://auth.thebhavyapatel.com/health` returns OK over valid TLS; an unrelated origin passed as `site_id` to `/auth` is rejected.
 - Rollback: remove this custom domain association; the public website is unaffected.
 
-## 4. Connect the static preview Worker to GitHub
+## 4. Connect the verified static site to GitHub automation
+
+A durable, isolated review snapshot is already available at `https://thebhavyapatel-com-preview.patelbhavya216.workers.dev`. It contains the verified build from commit `38f20f0`, has no custom domains, and does not change automatically. Use it for design and route review while configuring the real Git-driven deployment below.
 
 - Dashboard: Cloudflare → Workers & Pages → Create application → Import a repository / Git integration.
 - Repository: `patbhav1441/thebhavyapatel.com`.
@@ -48,7 +50,7 @@ Use the OAuth App values for the first two. For `OAUTH_STATE_SECRET`, enter a ne
 - Deploy command: `npx wrangler deploy`.
 - Node environment variable: `NODE_VERSION=24` if Cloudflare does not honor `.nvmrc` automatically.
 - Preview deployments for non-production branches: enabled.
-- Verify: deploy `rebuild/astro-cms`; the build passes and the Cloudflare preview URL serves `/`, `/studdybuddy/`, `/admin/`, `/sitemap-index.xml`, and the custom 404. Confirm a deliberately invalid test record fails without replacing the prior preview.
+- Verify: deploy `rebuild/astro-cms`; the build passes and the Git-driven Cloudflare preview URL serves `/`, `/studdybuddy/`, `/admin/`, `/sitemap-index.xml`, and the custom 404. Confirm a deliberately invalid test record fails without replacing the prior preview. Once this succeeds, the review-snapshot Worker can be retained for comparison or deleted.
 - Rollback: disconnect the Git repository or roll back this new Worker's deployment. Do not change `officialweb` or either production domain.
 
 ## 5. Complete real CMS acceptance on preview

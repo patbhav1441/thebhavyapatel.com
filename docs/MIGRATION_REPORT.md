@@ -40,4 +40,4 @@ Added: schema validation, Decap CMS, OAuth Worker, Workers Static Assets config,
 - Review migrated factual records and selectively publish them.
 - Supply approved images, alt text, project URLs, a reviewed resume, and any authorized testimonials.
 - Complete StuddyBuddy/Vlogz product, privacy, moderation, support, deletion, and App Store decisions.
-- Complete GitHub OAuth credentials and Cloudflare preview/cutover actions.
+- Complete GitHub OAuth credentials, Cloudflare Git automation, CMS acceptance, and production cutover actions. An isolated Cloudflare review snapshot is already deployed without production domains.

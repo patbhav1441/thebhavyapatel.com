@@ -51,6 +51,7 @@ See `docs/CMS_SETUP.md` for editor workflows and `docs/CONTENT_MODEL.md` for the
 
 ## Deployment
 
+- Isolated review snapshot: `https://thebhavyapatel-com-preview.patelbhavya216.workers.dev`
 - Public site Worker: `thebhavyapatel-com` from root `wrangler.jsonc`
 - CMS OAuth Worker: `thebhavyapatel-cms-auth` from `workers/cms-auth/wrangler.jsonc`
 - Canonical site: `https://www.thebhavyapatel.com`

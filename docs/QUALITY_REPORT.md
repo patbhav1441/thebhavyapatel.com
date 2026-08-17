@@ -13,6 +13,12 @@ Measured 2026-08-17 on Node 24.19.0. The public build was served locally from `d
 
 Playwright covers every public route, canonical metadata, exactly one H1, console and uncaught page errors, mobile menu focus return, keyboard/hover parity, reduced motion, horizontal overflow, draft legal-route exclusion, custom 404, admin `noindex`, the rendered GitHub login screen, and serious/critical axe findings.
 
+## Cloudflare review snapshot
+
+Commit `38f20f0` is deployed to the isolated Worker `thebhavyapatel-com-preview` at `https://thebhavyapatel-com-preview.patelbhavya216.workers.dev`. The public route matrix returned 200 for all core and project routes, while an unknown route and the draft StuddyBuddy privacy route returned 404. Remote Chromium loaded `/` and `/admin/` without console or uncaught page errors, and the admin rendered the GitHub login control. Public, immutable-asset, and admin-specific security headers matched the repository policies.
+
+The snapshot has no custom domains. Cloudflare still reports `thebhavyapatel.com` and `www.thebhavyapatel.com` only on the preserved `officialweb` Worker, whose deployment timestamp remains unchanged. The snapshot is a durable review artifact, not a substitute for the Git-triggered deployment configured in `MANUAL_ACTIONS.md`.
+
 ## Lighthouse
 
 | Page            | Performance | Accessibility | Best Practices | SEO |

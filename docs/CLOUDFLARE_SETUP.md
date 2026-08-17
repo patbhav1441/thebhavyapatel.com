@@ -2,12 +2,15 @@
 
 ## Workers
 
-| Purpose                    | Worker                    | Config                             | Output        |
-| -------------------------- | ------------------------- | ---------------------------------- | ------------- |
-| Public static preview/site | `thebhavyapatel-com`      | `/wrangler.jsonc`                  | `dist/`       |
-| Decap GitHub OAuth         | `thebhavyapatel-cms-auth` | `/workers/cms-auth/wrangler.jsonc` | Worker module |
+| Purpose                         | Worker                       | Config                             | Output        |
+| ------------------------------- | ---------------------------- | ---------------------------------- | ------------- |
+| Isolated review snapshot        | `thebhavyapatel-com-preview` | Review-only deployment             | `dist/`       |
+| Git-driven production candidate | `thebhavyapatel-com`         | `/wrangler.jsonc`                  | `dist/`       |
+| Decap GitHub OAuth              | `thebhavyapatel-cms-auth`    | `/workers/cms-auth/wrangler.jsonc` | Worker module |
 
 The current production domains point to the separate legacy `officialweb` Worker. Keep it and its last good deployment until the rebuilt site and CMS workflow pass preview acceptance.
+
+The isolated snapshot is available at `https://thebhavyapatel-com-preview.patelbhavya216.workers.dev`. It contains the verified build from commit `38f20f0`, has no custom domains, and is intentionally not the automatic deployment path. Use Workers Builds with the root Wrangler configuration for ongoing Git-driven preview and production releases.
 
 ## Static build settings
 
