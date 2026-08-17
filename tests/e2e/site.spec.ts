@@ -18,6 +18,7 @@ const publicRoutes = [
 for (const route of publicRoutes) {
   test(`${route} renders a canonical, accessible page shell`, async ({ page }) => {
     const errors: string[] = [];
+    page.on("pageerror", (error) => errors.push(error.message));
     page.on("console", (message) => {
       if (message.type() === "error") errors.push(message.text());
     });
@@ -33,6 +34,8 @@ for (const route of publicRoutes) {
 }
 
 test("admin is isolated and excluded from indexing", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
   const response = await page.goto("/admin/");
   expect(response?.ok()).toBe(true);
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
@@ -40,6 +43,9 @@ test("admin is isolated and excluded from indexing", async ({ page }) => {
     "noindex,nofollow,noarchive",
   );
   await expect(page.locator("#nc-root")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Login with GitHub" })).toBeVisible();
+  const unexpectedErrors = errors.filter((message) => !message.includes("localhost:8081/api/v1"));
+  expect(unexpectedErrors).toEqual([]);
 });
 
 test("draft StuddyBuddy policy routes are not published", async ({ page }) => {

@@ -8,10 +8,10 @@ Measured 2026-08-17 on Node 24.19.0. The public build was served locally from `d
 - `npm run build`: passed; 13 HTML pages, sitemap, static files, and draft-route smoke checks.
 - `npm test`: passed; four files and 14 tests.
 - `npm run test:e2e`: passed; 37 checks and one intentional desktop skip across Chromium and mobile WebKit.
-- `npm run deploy:dry`: passed; 133 static assets packaged.
+- `npm run deploy:dry`: passed; 44 static assets packaged.
 - `npm run deploy:auth:dry`: passed; OAuth Worker packaged with only its non-secret allowed-origin binding.
 
-Playwright covers every public route, canonical metadata, exactly one H1, console errors, mobile menu focus return, keyboard/hover parity, reduced motion, horizontal overflow, draft legal-route exclusion, custom 404, admin `noindex`, and serious/critical axe findings.
+Playwright covers every public route, canonical metadata, exactly one H1, console and uncaught page errors, mobile menu focus return, keyboard/hover parity, reduced motion, horizontal overflow, draft legal-route exclusion, custom 404, admin `noindex`, the rendered GitHub login screen, and serious/critical axe findings.
 
 ## Lighthouse
 
@@ -24,7 +24,7 @@ All four categories meet the required minimum score of 95. Homepage Speed Index 
 
 ## Delivery footprint
 
-The full deployment is about 6.1 MB. The 5.39 MB JavaScript chunk belongs only to `/admin/` and contains Decap CMS; public pages do not request that module. Public interactivity is implemented as small inline scripts with static HTML/CSS as the primary delivery.
+The full deployment is about 6.1 MB. Decap CMS belongs only to `/admin/` and uses selective, runtime-safe chunking; the largest generated asset is about 4.42 MB, below the 5 MiB limit encountered by Cloudflare's temporary preview account. Public pages do not request those modules. Public interactivity is implemented as small inline scripts with static HTML/CSS as the primary delivery.
 
 ## Security and dependency review
 
@@ -32,7 +32,7 @@ Source scanning found no real token, OAuth secret, cloud key, or private key. Un
 
 `npm audit --omit=dev` reports 31 high findings that reduce to three upstream denial-of-service advisories in Decap CMS's old `immutable@3.8.4` and `trim@0.0.1` dependency graph. `decap-cms-app@3.15.1` is the current pinned release and npm reports no safe direct fix. Forcing `immutable` across a major version could break Decap and was not done. Exposure is limited to the isolated, `noindex`, `no-store`, repository-authorized admin UI; the public route bundle does not load Decap. Dependabot will surface a compatible upstream repair. This exception should be rechecked before production cutover and after every Decap update.
 
-The production build warning about direct `eval` and the large chunk also originates inside Decap/Markdown editor dependencies and is confined to the admin entrypoint.
+The production build warning about direct `eval` and the large chunk also originates inside Decap/Markdown editor dependencies and is confined to the admin entrypoint. Its Ajv schema validator requires runtime code generation, so `unsafe-eval` is permitted only by the `/admin/*` CSP; public pages retain the stricter policy.
 
 ## Link review
 
