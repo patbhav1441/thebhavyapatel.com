@@ -1,0 +1,32 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import LegalLayout from "@layouts/LegalLayout.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects", ({ data }) => data.published);
+  const pages = await getCollection("projectPages", ({ data }) => data.status === "published");
+
+  return pages.flatMap((page) => {
+    const project = projects.find((candidate) => candidate.data.slug === page.data.projectSlug);
+    if (!project) return [];
+    return [
+      {
+        params: { project: page.data.projectSlug, page: page.data.pageSlug },
+        props: { page, project },
+      },
+    ];
+  });
+}
+
+interface Props {
+  page: CollectionEntry<"projectPages">;
+  project: CollectionEntry<"projects">;
+}
+
+const { page, project } = Astro.props;
+const { Content } = await render(page);
+---
+
+<LegalLayout page={page} project={project}>
+  <Content />
+</LegalLayout>

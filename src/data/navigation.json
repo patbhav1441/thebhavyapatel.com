@@ -1,0 +1,12 @@
+{
+  "primary": [
+    { "label": "Work", "href": "/work/" },
+    { "label": "About", "href": "/about/" },
+    { "label": "Resume", "href": "/resume/" },
+    { "label": "Contact", "href": "/contact/" }
+  ],
+  "footer": [
+    { "label": "GitHub", "href": "https://github.com/patbhav1441" },
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/in/bhavya-patel-60877420a/" }
+  ]
+}

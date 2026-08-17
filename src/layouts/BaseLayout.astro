@@ -1,0 +1,41 @@
+---
+import "@fontsource-variable/instrument-sans";
+import "@fontsource-variable/newsreader";
+import "@styles/global.css";
+import SeoHead from "@components/global/SeoHead.astro";
+import SiteFooter from "@components/global/SiteFooter.astro";
+import SiteHeader from "@components/global/SiteHeader.astro";
+import SkipLink from "@components/global/SkipLink.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+  image?: string;
+  noindex?: boolean;
+  type?: "website" | "article";
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  bare?: boolean;
+}
+
+const { bare = false, ...seo } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem("bp-theme");
+        if (saved === "dark" || saved === "light") document.documentElement.dataset.theme = saved;
+      })();
+    </script>
+    <SeoHead {...seo} />
+  </head>
+  <body>
+    {!bare && <SkipLink />}
+    {!bare && <SiteHeader />}
+    <main id="main-content"><slot /></main>
+    {!bare && <SiteFooter />}
+  </body>
+</html>

@@ -1,0 +1,67 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { home } from "@lib/settings";
+
+const projects = (await getCollection("projects", ({ data }) => data.published)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const topics = [
+  ...new Set(
+    projects.flatMap((project) => [...project.data.categories, ...project.data.technologies]),
+  ),
+].sort();
+---
+
+<BaseLayout
+  title="About — Bhavya Patel"
+  description="About Bhavya Patel, an undergraduate student, researcher, and generalist builder working across software and emerging technology."
+  path="/about/"
+>
+  <header class="page-intro shell">
+    <p class="eyebrow">Working profile</p>
+    <h1>Curiosity, organized into work.</h1>
+    <p>{home.aboutSummary}</p>
+  </header>
+
+  <section class="section">
+    <div class="shell section-heading">
+      <p class="eyebrow">Approach</p>
+      <div class="prose" style="margin:0">
+        <h2>Generalist is a method.</h2>
+        <p>
+          I use software, research, product thinking, and communication as connected tools. The
+          useful part is not collecting labels; it is learning enough across boundaries to frame a
+          question, make a system, and evaluate what happens next.
+        </p>
+        <p>
+          Detailed education, experience, research, and credential records have been migrated into
+          the content system but remain unpublished until their dates and wording receive a current
+          review.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="topics-title">
+    <div class="shell">
+      <div class="section-heading">
+        <p class="eyebrow">Project vocabulary</p><h2 id="topics-title">
+          Areas represented in the current index.
+        </h2>
+      </div>
+      <div class="focus-grid">
+        {
+          topics.map((topic, index) => (
+            <div class="focus-item">
+              <>
+                <span class="project-code">{String(index + 1).padStart(2, "0")}</span>
+                <h3>{topic}</h3>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,20 @@
+<button
+  class="icon-button theme-control"
+  type="button"
+  aria-label="Switch color theme"
+  data-theme-control
+>
+  <span aria-hidden="true">◐</span>
+</button>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("[data-theme-control]");
+
+  button?.addEventListener("click", () => {
+    const root = document.documentElement;
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
+    root.dataset.theme = next;
+    localStorage.setItem("bp-theme", next);
+    button.setAttribute("aria-label", `Switch to ${next === "dark" ? "light" : "dark"} theme`);
+  });
+</script>

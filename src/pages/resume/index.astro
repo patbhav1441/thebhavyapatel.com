@@ -1,0 +1,46 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { site } from "@lib/settings";
+---
+
+<BaseLayout
+  title="Resume — Bhavya Patel"
+  description="Resume and structured professional records for Bhavya Patel, with current project work and contact information."
+  path="/resume/"
+  noindex={!site.resumePath}
+>
+  <header class="page-intro shell">
+    <p class="eyebrow">Resume</p>
+    <h1>Experience, with the date checked.</h1>
+    <p>
+      The legacy résumé records are now structured and editable, but their dates and current-status
+      claims are held from publication until a fresh factual review is complete.
+    </p>
+    {
+      site.resumePath ? (
+        <p>
+          <a class="button-link" href={site.resumePath}>
+            Download reviewed PDF
+          </a>
+        </p>
+      ) : (
+        <p class="notice">
+          A reviewed résumé PDF has not yet been supplied. Nothing fabricated or stale is being
+          offered as a download.
+        </p>
+      )
+    }
+  </header>
+  <section class="section">
+    <div class="shell section-heading">
+      <p class="eyebrow">In the meantime</p>
+      <div>
+        <h2>Use the work index as the current public record.</h2><p>
+          <a class="text-link" href="/work/">Explore work</a> · <a class="text-link" href="/about/"
+            >Read about</a
+          > · <a class="text-link" href="/contact/">Contact Bhavya</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

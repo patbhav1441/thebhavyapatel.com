@@ -1,0 +1,52 @@
+---
+import { navigation, site } from "@lib/settings";
+import ThemeControl from "./ThemeControl.astro";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <nav class="site-nav shell" aria-label="Primary navigation">
+    <a class="brand" href="/">{site.name}</a>
+    <ul class="desktop-links">
+      {
+        navigation.primary.map((item) => (
+          <li>
+            <a href={item.href} aria-current={currentPath === item.href ? "page" : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="header-actions">
+      <ThemeControl />
+      <button class="icon-button menu-trigger" type="button" aria-label="Open menu" data-open-menu>
+        <span aria-hidden="true">☰</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<dialog class="menu-dialog" data-menu-dialog>
+  <div class="menu-dialog__top">
+    <span class="eyebrow">Index</span>
+    <button class="icon-button" type="button" aria-label="Close menu" data-close-menu>×</button>
+  </div>
+  <nav aria-label="Mobile navigation">
+    {navigation.primary.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>("[data-menu-dialog]");
+  const openButton = document.querySelector<HTMLButtonElement>("[data-open-menu]");
+  const closeButton = document.querySelector<HTMLButtonElement>("[data-close-menu]");
+
+  openButton?.addEventListener("click", () => dialog?.showModal());
+  closeButton?.addEventListener("click", () => dialog?.close());
+  dialog?.addEventListener("close", () => openButton?.focus());
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+</script>

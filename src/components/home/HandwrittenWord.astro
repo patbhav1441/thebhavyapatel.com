@@ -1,0 +1,73 @@
+---
+interface Props {
+  word: string;
+}
+const { word } = Astro.props;
+---
+
+<div class="handwritten" aria-label={word} role="img">
+  <span class="sr-only">{word}</span>
+  <svg viewBox="0 0 520 118" aria-hidden="true">
+    <g pathLength="1">
+      <path
+        pathLength="1"
+        style="--stroke: 0"
+        d="M18 70 C18 42 50 36 53 61 C56 86 28 94 20 72 C16 58 33 52 56 53"></path>
+      <path
+        pathLength="1"
+        style="--stroke: 1"
+        d="M62 68 C76 47 92 48 98 62 C104 78 88 91 74 82 C63 75 66 58 84 54 C96 51 106 56 112 64"
+      ></path>
+      <path
+        pathLength="1"
+        style="--stroke: 2"
+        d="M114 84 C119 69 121 59 123 50 C125 61 126 72 128 83 C132 65 144 50 155 54 C165 59 157 75 160 83"
+      ></path>
+      <path pathLength="1" style="--stroke: 3" d="M169 48 C171 44 175 44 177 48"></path>
+      <path
+        pathLength="1"
+        style="--stroke: 4"
+        d="M172 56 C171 67 168 78 171 84 C175 88 182 83 186 77"></path>
+      <path
+        pathLength="1"
+        style="--stroke: 5"
+        d="M188 68 C198 48 222 49 223 67 C224 84 201 91 194 79 C188 68 201 58 225 60"></path>
+      <path
+        pathLength="1"
+        style="--stroke: 6"
+        d="M232 54 C231 68 227 79 231 84 C238 90 249 80 255 71"></path>
+      <path
+        pathLength="1"
+        style="--stroke: 7"
+        d="M247 42 C247 58 245 75 248 83 C253 91 265 80 269 72"></path>
+      <path pathLength="1" style="--stroke: 8" d="M278 48 C280 44 284 44 286 48"></path>
+      <path
+        pathLength="1"
+        style="--stroke: 9"
+        d="M281 56 C279 69 276 79 280 84 C286 90 297 80 302 70"></path>
+      <path
+        pathLength="1"
+        style="--stroke: 10"
+        d="M306 63 C315 48 337 50 336 63 C335 72 318 70 313 77 C309 85 326 91 343 78"></path>
+      <path
+        pathLength="1"
+        style="--stroke: 11"
+        d="M351 42 C350 58 347 75 351 84 C356 90 368 81 374 70"></path>
+      <path
+        pathLength="1"
+        style="--stroke: 12"
+        d="M378 54 C377 69 374 80 379 84 C387 91 398 78 404 68"></path>
+      <path
+        pathLength="1"
+        style="--stroke: 13"
+        d="M407 61 C418 47 440 51 438 68 C436 84 416 90 410 79 C405 67 420 57 441 61 C449 62 455 67 458 73"
+      ></path>
+      <path
+        pathLength="1"
+        style="--stroke: 14"
+        d="M461 54 C460 64 456 76 458 84 C462 74 471 52 483 55 C494 59 485 75 490 83 C495 91 506 77 510 70"
+      ></path>
+      <path pathLength="1" style="--stroke: 15" d="M102 101 C220 91 344 97 482 92"></path>
+    </g>
+  </svg>
+</div>

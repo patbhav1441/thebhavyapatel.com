@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import SelectedWork from "@components/home/SelectedWork.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const projects = (await getCollection("projects", ({ data }) => data.published)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout
+  title="Work — Bhavya Patel"
+  description="An index of Bhavya Patel's product concepts, research projects, technical experiments, and workflow systems."
+  path="/work/"
+>
+  <header class="page-intro shell">
+    <p class="eyebrow">Work index</p>
+    <h1>Systems, products, and research.</h1>
+    <p>
+      Each record states what is known, what is still exploratory, and what needs evidence before a
+      stronger claim can be made.
+    </p>
+  </header>
+  <SelectedWork projects={projects} />
+</BaseLayout>
