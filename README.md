@@ -61,7 +61,7 @@ No OAuth secret belongs in Git. Complete the credential and Cloudflare dashboard
 
 ## Recovery
 
-The pre-migration site is preserved by the annotated tag `pre-astro-migration-2026-08-17` and branch `legacy/react-cra`. Cloudflare's existing `officialweb` Worker must remain available until the rebuilt site is accepted in production.
+The pre-migration site is preserved by the annotated tag `pre-astro-migration-2026-08-17` and branch `legacy/react-cra`. Production moved to `thebhavyapatel-com` on 2026-08-18; the legacy `officialweb` Worker remains available during stabilization as a rollback target.
 
 ## Documentation
 

@@ -1,6 +1,6 @@
 # Manual actions
 
-Only credential- or dashboard-dependent actions are listed here. Complete them in order. Do not attach the production `www` domain until preview and CMS acceptance pass.
+Only credential- or dashboard-dependent actions are listed here. Steps 1-4 and 7 were completed by 2026-08-18. Step 5 still needs the site owner's one-time interactive GitHub authorization and controlled CMS edit test. Step 6 is an ongoing editorial and product-readiness checklist.
 
 ## 1. Create the GitHub OAuth App
 
@@ -39,7 +39,7 @@ Use the OAuth App values for the first two. For `OAUTH_STATE_SECRET`, enter a ne
 
 ## 4. Connect the verified static site to GitHub automation
 
-A durable, isolated review snapshot is already available at `https://thebhavyapatel-com-preview.patelbhavya216.workers.dev`. It contains the verified build from commit `38f20f0`, has no custom domains, and does not change automatically. Use it for design and route review while configuring the real Git-driven deployment below.
+A durable, isolated review snapshot remains available at `https://thebhavyapatel-com-preview.patelbhavya216.workers.dev`. It has no custom domains and does not change automatically. Use it for design and route review alongside the production deployment below.
 
 - Dashboard: Cloudflare → Workers & Pages → Create application → Import a repository / Git integration.
 - Repository: `patbhav1441/thebhavyapatel.com`.
@@ -50,7 +50,7 @@ A durable, isolated review snapshot is already available at `https://thebhavyapa
 - Deploy command: `npx wrangler deploy`.
 - Node environment variable: `NODE_VERSION=24` if Cloudflare does not honor `.nvmrc` automatically.
 - Preview deployments for non-production branches: enabled.
-- Verify: deploy `rebuild/astro-cms`; the build passes and the Git-driven Cloudflare preview URL serves `/`, `/studdybuddy/`, `/admin/`, `/sitemap-index.xml`, and the custom 404. Confirm a deliberately invalid test record fails without replacing the prior preview. Once this succeeds, the review-snapshot Worker can be retained for comparison or deleted.
+- Verify: the `main` build passes and the Git-driven Cloudflare URL serves `/`, `/studdybuddy/`, `/admin/`, `/sitemap-index.xml`, and the custom 404. Confirm a deliberately invalid test record fails without replacing the prior deployment. The review-snapshot Worker can be retained for comparison or deleted.
 - Rollback: disconnect the Git repository or roll back this new Worker's deployment. Do not change `officialweb` or either production domain.
 
 ## 5. Complete real CMS acceptance on preview
@@ -68,6 +68,8 @@ A durable, isolated review snapshot is already available at `https://thebhavyapa
 - Rollback: set `published: false` or revert the content commit; never solve uncertainty by weakening validators.
 
 ## 7. Production cutover after acceptance
+
+Completed 2026-08-18. Both custom domains were atomically reassigned from `officialweb` to `thebhavyapatel-com`. Cloudflare ruleset `Canonical www redirect` permanently redirects the apex to `www` while preserving paths and query strings. Keep the steps below as the verification and rollback record.
 
 - Dashboard: Cloudflare → Workers & Pages → `thebhavyapatel-com` → Settings → Domains & Routes.
 - Custom domain: `www.thebhavyapatel.com`.
