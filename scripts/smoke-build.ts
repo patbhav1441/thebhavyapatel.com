@@ -7,6 +7,7 @@ const required = [
   "work/index.html",
   "about/index.html",
   "resume/index.html",
+  "resume/bhavya-patel-resume.pdf",
   "contact/index.html",
   "admin/index.html",
   "studdybuddy/index.html",

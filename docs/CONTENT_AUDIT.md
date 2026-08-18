@@ -15,7 +15,7 @@ Audit date: 2026-08-17. Source: preserved Create React App implementation in `bh
 | Project links     | Four project buttons pointed to the general GitHub profile               | replace / missing      | Omitted until a known public repository or product URL is supplied              |
 | Videos            | Two YouTube embeds used `VIDEO_ID_1` and `VIDEO_ID_2`                    | remove                 | Removed; validator rejects placeholder IDs                                      |
 | Testimonials      | Generic testimonials had no verified publication authorization           | remove                 | Entire section omitted                                                          |
-| Resume            | No verified reviewed PDF was present                                     | missing                | Resume route explains review status; upload field remains optional              |
+| Resume            | No verified reviewed PDF was present in the legacy repository            | resolved 2026-08-18    | Generated a one-page PDF from the current user-authorized activity list         |
 | Images            | No project media inventory or verified alt text existed                  | missing                | No invented imagery; project-local upload structure is ready                    |
 | Metrics           | Several accomplishment statements require source confirmation            | needs-review           | Not exposed on the rebuilt public site                                          |
 | Availability      | Product availability and App Store status were not verified              | needs-review           | Status labels are conservative; no store-ready claim is published               |
@@ -32,4 +32,4 @@ Audit date: 2026-08-17. Source: preserved Create React App implementation in `bh
 
 ## Decisions required from Bhavya
 
-Confirm dates, titles, organizations, credential validity, research descriptions, public repositories, product availability, approved media/alt text, reviewed resume PDF, and any testimonial publication permissions before changing the corresponding `published` or readiness flags.
+Confirm dates, titles, organizations, credential validity, research descriptions, public repositories, product availability, approved media/alt text, and any testimonial publication permissions before changing the corresponding `published` or readiness flags. Refresh the one-page resume whenever the current activity list changes.

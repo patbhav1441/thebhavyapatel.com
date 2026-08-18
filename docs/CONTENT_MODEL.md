@@ -29,7 +29,7 @@ Child records use `src/content/project-pages/<project>--<slug>.md` and produce `
 
 ## Experience, education, credentials, and research
 
-These collections hold migrated source material. Every current migrated record is `published: false` and `needsReview: true`; the public resume summarizes the review state rather than republishing potentially stale claims.
+These collections hold migrated source material. Every current migrated record is `published: false` and `needsReview: true`. The one-page public resume is a selected summary generated from the current activity list authorized by the site owner on 2026-08-18; the detailed collections remain unpublished until record-by-record review.
 
 ## Adding a field
 

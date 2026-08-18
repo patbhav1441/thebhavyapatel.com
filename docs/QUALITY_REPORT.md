@@ -1,13 +1,13 @@
 # Quality report
 
-Measured 2026-08-17 on Node 24.19.0. The public build was served locally from `dist/`; Lighthouse 13.4.1 used its default mobile throttling.
+Measured 2026-08-17 and refreshed 2026-08-18 on Node 24.19.0. The public build was served locally from `dist/`; Lighthouse 13.4.1 used its default mobile throttling.
 
 ## Automated gates
 
 - `npm run check`: passed; formatting, ESLint, Astro diagnostics, Worker TypeScript, content/route/placeholder validators, and 14 Vitest tests.
-- `npm run build`: passed; 13 HTML pages, sitemap, static files, and draft-route smoke checks.
+- `npm run build`: passed; 13 HTML pages, sitemap, one-page resume PDF, static files, and draft-route smoke checks.
 - `npm test`: passed; four files and 14 tests.
-- `npm run test:e2e`: passed; 37 checks and one intentional desktop skip across Chromium and mobile WebKit.
+- `npm run test:e2e`: passed after the resume integration; 39 checks and one intentional desktop skip across Chromium and mobile WebKit.
 - `npm run deploy:dry`: passed; 44 static assets packaged.
 - `npm run deploy:auth:dry`: passed; OAuth Worker packaged with only its non-secret allowed-origin binding.
 
@@ -15,7 +15,7 @@ Playwright covers every public route, canonical metadata, exactly one H1, consol
 
 ## Cloudflare review snapshot
 
-Commit `38f20f0` is deployed to the isolated Worker `thebhavyapatel-com-preview` at `https://thebhavyapatel-com-preview.patelbhavya216.workers.dev`. The public route matrix returned 200 for all core and project routes, while an unknown route and the draft StuddyBuddy privacy route returned 404. Remote Chromium loaded `/` and `/admin/` without console or uncaught page errors, and the admin rendered the GitHub login control. Public, immutable-asset, and admin-specific security headers matched the repository policies.
+The current isolated preview is deployed to `thebhavyapatel-com-preview` at `https://thebhavyapatel-com-preview.patelbhavya216.workers.dev`. The public route matrix returns 200 for all core and project routes, the resume PDF returns `application/pdf`, and `/products/` plus `/fhschecklist/` resolve to their canonical routes. Unknown and unpublished StuddyBuddy policy routes return 404. Remote Chromium loaded `/` and `/admin/` without console or uncaught page errors, and the admin rendered the GitHub login control. Public, immutable-asset, and admin-specific security headers matched the repository policies.
 
 The snapshot has no custom domains. Cloudflare still reports `thebhavyapatel.com` and `www.thebhavyapatel.com` only on the preserved `officialweb` Worker, whose deployment timestamp remains unchanged. The snapshot is a durable review artifact, not a substitute for the Git-triggered deployment configured in `MANUAL_ACTIONS.md`.
 

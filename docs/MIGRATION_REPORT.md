@@ -15,7 +15,7 @@ Migration date: 2026-08-17. Source baseline: legacy Create React App site at com
 - Unverified generic testimonials.
 - General GitHub-profile URLs used as if they were project-specific links.
 - Unverified metrics, availability claims, stale-date assertions, and private FHS details.
-- A resume download because no reviewed PDF was supplied.
+- A resume download was initially omitted because no reviewed PDF was supplied. A one-page PDF was generated on 2026-08-18 from the current user-authorized activity list and is now linked from `/resume/`.
 
 ## Routes changed
 
@@ -23,7 +23,7 @@ The single JavaScript-rendered page became static `/`, `/work/`, `/about/`, `/re
 
 ## Redirects and canonical behavior
 
-`public/_redirects` normalizes common non-trailing-slash routes. Canonical metadata uses `https://www.thebhavyapatel.com`. The apex-to-`www` redirect remains a Cloudflare cutover action because the current production deployment must not be disturbed before preview acceptance.
+`public/_redirects` normalizes common non-trailing-slash routes and maps `/products/` to `/work/` and `/fhschecklist/` to `/fhs-checklist/`. Canonical metadata uses `https://www.thebhavyapatel.com`. The apex-to-`www` redirect remains a Cloudflare cutover action because the current production deployment must not be disturbed before preview acceptance.
 
 ## Media
 
@@ -38,6 +38,6 @@ Added: schema validation, Decap CMS, OAuth Worker, Workers Static Assets config,
 ## Remaining manual decisions
 
 - Review migrated factual records and selectively publish them.
-- Supply approved images, alt text, project URLs, a reviewed resume, and any authorized testimonials.
+- Supply approved images, alt text, project URLs, and any authorized testimonials; keep the generated one-page resume current as roles change.
 - Complete StuddyBuddy/Vlogz product, privacy, moderation, support, deletion, and App Store decisions.
 - Complete GitHub OAuth credentials, Cloudflare Git automation, CMS acceptance, and production cutover actions. An isolated Cloudflare review snapshot is already deployed without production domains.

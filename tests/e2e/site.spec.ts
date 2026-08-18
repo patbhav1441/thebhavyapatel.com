@@ -48,6 +48,17 @@ test("admin is isolated and excluded from indexing", async ({ page }) => {
   expect(unexpectedErrors).toEqual([]);
 });
 
+test("resume page exposes the current one-page PDF", async ({ page }) => {
+  await page.goto("/resume/");
+  await expect(page.getByRole("link", { name: "Download one-page PDF" })).toHaveAttribute(
+    "href",
+    "/resume/bhavya-patel-resume.pdf",
+  );
+  const response = await page.request.get("/resume/bhavya-patel-resume.pdf");
+  expect(response.ok()).toBe(true);
+  expect(response.headers()["content-type"]).toContain("application/pdf");
+});
+
 test("draft StuddyBuddy policy routes are not published", async ({ page }) => {
   for (const route of [
     "privacy",
