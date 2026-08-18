@@ -13,7 +13,7 @@ body {
   min-height: 100vh;
   overflow-x: clip;
   background:
-    linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 100% 3rem,
+    linear-gradient(var(--line) 1px, transparent 1px) 0 var(--rule-offset) / 100% var(--rule-step),
     var(--paper);
   color: var(--ink);
   text-rendering: optimizeLegibility;
@@ -254,6 +254,7 @@ body {
   max-width: 40rem;
   color: var(--ink-muted);
   font-size: clamp(1.1rem, 2vw, 1.55rem);
+  line-height: var(--rule-step);
 }
 
 .hero-actions {
@@ -264,7 +265,7 @@ body {
 }
 
 .handwritten {
-  width: min(100%, 37rem);
+  width: min(100%, 42rem);
   justify-self: end;
   color: var(--blue);
 }
@@ -277,8 +278,8 @@ body {
   stroke-linejoin: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: write-stroke 1.75s cubic-bezier(0.55, 0, 0.35, 1) forwards;
-  animation-delay: calc(180ms + var(--stroke) * 95ms);
+  animation: write-stroke 900ms cubic-bezier(0.55, 0, 0.35, 1) forwards;
+  animation-delay: calc(120ms + var(--stroke) * 50ms);
 }
 
 @keyframes write-stroke {
@@ -413,6 +414,7 @@ body {
   margin-top: var(--space-8);
   color: var(--ink-muted);
   font-size: clamp(1.1rem, 2vw, 1.45rem);
+  line-height: var(--rule-step);
 }
 
 .project-hero {
@@ -438,6 +440,7 @@ body {
   margin-left: auto;
   color: var(--ink-muted);
   font-size: clamp(1.15rem, 2.3vw, 1.7rem);
+  line-height: var(--rule-step);
 }
 
 .project-accent {
