@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { site } from "@lib/settings";
+---
+
+<BaseLayout
+  title="Contact — Bhavya Patel"
+  description="Contact Bhavya Patel about product ideas, research, software projects, and collaboration."
+  path="/contact/"
+>
+  <header class="page-intro shell">
+    <p class="eyebrow">Contact</p>
+    <h1>Start with a useful question.</h1>
+    <p>For a project, research question, or collaboration, email is the clearest place to begin.</p>
+    <div class="hero-actions">
+      <a class="button-link" href={`mailto:${site.email}`}>Email Bhavya</a>
+      <a class="button-link secondary" href={site.socials.linkedin}>LinkedIn</a>
+      <a class="button-link secondary" href={site.socials.github}>GitHub</a>
+    </div>
+  </header>
+</BaseLayout>

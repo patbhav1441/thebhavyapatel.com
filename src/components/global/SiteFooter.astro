@@ -1,0 +1,25 @@
+---
+import { navigation, site } from "@lib/settings";
+const year = new Date().getUTCFullYear();
+---
+
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <p class="meta">
+      © {site.copyrightStartYear === year ? year : `${site.copyrightStartYear}–${year}`}
+      {site.name}
+    </p>
+    <ul class="footer-links">
+      {
+        navigation.footer.map((item) => (
+          <li>
+            <a href={item.href} rel="me">
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+      <li><a href="/admin/" rel="nofollow">Admin</a></li>
+    </ul>
+  </div>
+</footer>

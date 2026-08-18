@@ -1,0 +1,82 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formatStatus, projectPath } from "@lib/routes";
+
+interface Props {
+  projects: CollectionEntry<"projects">[];
+}
+
+const { projects } = Astro.props;
+const previewColors = {
+  blue: { background: "var(--blue)", foreground: "var(--preview-blue-ink)" },
+  lime: { background: "var(--lime)", foreground: "var(--preview-lime-ink)" },
+  amber: { background: "var(--amber)", foreground: "var(--preview-amber-ink)" },
+  violet: { background: "var(--violet)", foreground: "var(--preview-violet-ink)" },
+  neutral: { background: "var(--neutral)", foreground: "var(--preview-neutral-ink)" },
+};
+---
+
+<section class="section" aria-labelledby="selected-work-title">
+  <div class="shell">
+    <div class="section-heading">
+      <p class="eyebrow">01 / Selected work</p>
+      <div>
+        <h2 id="selected-work-title">An index of things in motion.</h2>
+        <p>
+          Products, research questions, and internal systems—shown at their actual stage, without
+          inflated outcomes.
+        </p>
+      </div>
+    </div>
+    <div class="work-index" data-work-index>
+      <ol class="project-list">
+        {
+          projects.map((project, index) => (
+            <li class="project-row" data-project-row={index}>
+              <span class="project-code">{project.data.projectCode}</span>
+              <a href={projectPath(project.data.slug)} data-project-link={index}>
+                <h3>{project.data.title}</h3>
+                <p>{project.data.summary}</p>
+              </a>
+              <span class="status">{formatStatus(project.data.status)}</span>
+            </li>
+          ))
+        }
+      </ol>
+      <div class="project-preview-stack" aria-hidden="true">
+        {
+          projects.map((project, index) => (
+            <div
+              class:list={["project-preview", { "is-active": index === 0 }]}
+              style={`--preview-color:${previewColors[project.data.accent].background};--preview-ink:${previewColors[project.data.accent].foreground}`}
+              data-project-preview={index}
+            >
+              <span class="project-code">{project.data.projectCode}</span>
+              <span class="project-preview__mark">{project.data.title}</span>
+              <span class="meta">
+                {formatStatus(project.data.status)} / {project.data.kind}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-work-index]").forEach((index) => {
+    const previews = index.querySelectorAll<HTMLElement>("[data-project-preview]");
+    const activate = (value: string) => {
+      previews.forEach((preview) =>
+        preview.classList.toggle("is-active", preview.dataset.projectPreview === value),
+      );
+    };
+    index.querySelectorAll<HTMLElement>("[data-project-row]").forEach((row) => {
+      row.addEventListener("mouseenter", () => activate(row.dataset.projectRow ?? "0"));
+      row
+        .querySelector("a")
+        ?.addEventListener("focus", () => activate(row.dataset.projectRow ?? "0"));
+    });
+  });
+</script>

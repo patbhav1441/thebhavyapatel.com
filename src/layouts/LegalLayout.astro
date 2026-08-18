@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "./BaseLayout.astro";
+import { projectPagePath, projectPath } from "@lib/routes";
+
+interface Props {
+  page: CollectionEntry<"projectPages">;
+  project: CollectionEntry<"projects">;
+}
+
+const { page, project } = Astro.props;
+const data = page.data;
+---
+
+<BaseLayout
+  title={data.seo.title || `${data.title} — ${project.data.title}`}
+  description={data.seo.description}
+  path={projectPagePath(project.data.slug, data.pageSlug)}
+  noindex={data.robots === "noindex"}
+  type="article"
+>
+  <article>
+    <header class="legal-header">
+      <div class="shell reading">
+        <p class="eyebrow">
+          <a href={projectPath(project.data.slug)}>{project.data.title}</a> / {data.kind}
+        </p>
+        <h1>{data.title}</h1>
+        <p>{data.summary}</p>
+        <p class="meta">Effective {data.effectiveDate} · Updated {data.lastUpdated}</p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="prose"><slot /></div>
+    </section>
+  </article>
+</BaseLayout>

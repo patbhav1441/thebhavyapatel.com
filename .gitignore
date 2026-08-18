@@ -1,13 +1,20 @@
 # Dependencies
 /node_modules
+**/node_modules
 /.pnp
 .pnp.js
 
 # Testing
 /coverage
+/playwright-report
+/test-results
+/.astro
+/.wrangler
 
 # Production
 /build
+/dist
+/bhavya-portfolio/build
 
 # Misc
 .DS_Store
@@ -16,6 +23,8 @@
 .env.development.local
 .env.test.local
 .env.production.local
+**/.dev.vars
+!**/.dev.vars.example
 
 # Logs
 npm-debug.log*

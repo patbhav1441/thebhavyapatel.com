@@ -1,131 +1,76 @@
 # thebhavyapatel.com
-Bhavya Patel - Portfolio Website
-A modern, responsive portfolio website built with React and Tailwind CSS, showcasing my projects, experience, education, and certifications.
-🚀 Features
 
-Responsive Design: Works seamlessly on desktop, tablet, and mobile devices
-Smooth Scrolling: Navigate through sections with smooth scroll animations
-Modern UI: Clean and professional design with gradient backgrounds
-Dynamic Content: Easy to update through a centralized configuration object
-Performance Optimized: Built with React best practices
+Bhavya Patel's Git-backed portfolio and project system. The public website is a static Astro build; Decap CMS edits the same Markdown and JSON records through GitHub; Cloudflare Workers serves the static assets and a separate Worker completes GitHub OAuth for the CMS.
 
-🛠️ Technologies Used
+Production remains on the preserved legacy Worker until the preview and CMS acceptance tests in `docs/MANUAL_ACTIONS.md` pass.
 
-React 18: Modern JavaScript library for building user interfaces
-Tailwind CSS: Utility-first CSS framework
-Lucide React: Beautiful, customizable icons
-nginx: Web server for deployment
+## Requirements
 
-📋 Sections
+- Node.js 24 (see `.nvmrc`)
+- npm
 
-Hero: Introduction with contact links
-About: Personal bio and technical skills
-Projects: Showcase of major projects with descriptions
-Experience: Professional and research experience
-Education: Academic background and achievements
-Credentials: Certifications and licenses
+## Local development
 
-🚀 Getting Started
-Prerequisites
+```bash
+nvm use
+npm ci
+npm run dev
+```
 
-Node.js (v16 or higher)
-npm or yarn
+Open `http://localhost:4321/`. To edit through Decap locally, run the site and proxy in separate terminals:
 
-Installation
+```bash
+npm run dev
+npm run dev:cms
+```
 
-Clone the repository:
+Then open `http://localhost:4321/admin/`.
 
-bashgit clone https://github.com/bhavyapatel/portfolio.git
-cd portfolio
+## Quality gates
 
-Install dependencies:
+```bash
+npm run check
+npm run build
+npm run test:e2e
+npm run deploy:dry
+npm run deploy:auth:dry
+```
 
-bashnpm install
+`npm run build` produces `dist/`. Draft records, reserved slugs, invalid readiness combinations, placeholder content, and conflicting routes fail before deployment.
 
-Start the development server:
+## Content editing
 
-bashnpm start
-The app will open at http://localhost:3000
-Build for Production
-bashnpm run build
-This creates an optimized production build in the build folder.
-🌐 Deployment
-Deploy with nginx
+- Global identity, homepage, and navigation: `src/data/`
+- Projects and nested project pages: `src/content/`
+- Browser editor: `/admin/`
+- CMS schema: `public/admin/config.yml`
 
-Build the project:
+Projects are folder records at `src/content/projects/<slug>/index.md`. A public route is created only when `published: true`. Nested pages use `src/content/project-pages/<project>--<page>.md`; legal pages additionally require reviewed dates and readiness flags before publication.
 
-bashnpm run build
+See `docs/CMS_SETUP.md` for editor workflows and `docs/CONTENT_MODEL.md` for the field contract.
 
-Copy build files to nginx:
+## Deployment
 
-bashcp -r build/* /path/to/nginx/html/
+- Isolated review snapshot: `https://thebhavyapatel-com-preview.patelbhavya216.workers.dev`
+- Public site Worker: `thebhavyapatel-com` from root `wrangler.jsonc`
+- CMS OAuth Worker: `thebhavyapatel-cms-auth` from `workers/cms-auth/wrangler.jsonc`
+- Canonical site: `https://www.thebhavyapatel.com`
+- Intended auth host: `https://auth.thebhavyapatel.com`
 
-Configure nginx and restart:
+No OAuth secret belongs in Git. Complete the credential and Cloudflare dashboard steps in `docs/MANUAL_ACTIONS.md`; architecture and rollback details are in `docs/CLOUDFLARE_SETUP.md` and `docs/CMS_AUTH_SETUP.md`.
 
-bashnginx -s reload
-Deploy to GitHub Pages
+## Recovery
 
-Install gh-pages:
+The pre-migration site is preserved by the annotated tag `pre-astro-migration-2026-08-17` and branch `legacy/react-cra`. Cloudflare's existing `officialweb` Worker must remain available until the rebuilt site is accepted in production.
 
-bashnpm install --save-dev gh-pages
+## Documentation
 
-Add to package.json:
-
-json"homepage": "https://yourusername.github.io/portfolio",
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d build"
-}
-
-Deploy:
-
-bashnpm run deploy
-Deploy to Vercel
-
-Install Vercel CLI:
-
-bashnpm install -g vercel
-
-Deploy:
-
-bashvercel
-Deploy to Netlify
-
-Install Netlify CLI:
-
-bashnpm install -g netlify-cli
-
-Deploy:
-
-bashnetlify deploy --prod
-⚙️ Customization
-All content can be customized by editing the config object in src/App.js:
-javascriptconst config = {
-  name: "Your Name",
-  title: "Your Title",
-  description: "Your Description",
-  accentColor: "#1d4ed8", // Change theme color
-  social: { /* ... */ },
-  aboutMe: "Your bio",
-  skills: [ /* ... */ ],
-  projects: [ /* ... */ ],
-  experience: [ /* ... */ ],
-  education: [ /* ... */ ],
-  credentials: [ /* ... */ ]
-};
-📱 Contact
-
-Email: patelbhavya216@gmail.com
-LinkedIn: linkedin.com/in/bhavya-patel-60877420a
-GitHub: github.com/bhavyapatel
-
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
-🙏 Acknowledgments
-
-Design inspired by modern portfolio trends
-Icons by Lucide
-Built with Create React App
-
-
-Made with ❤️ by Bhavya Patel
+- `docs/ARCHITECTURE.md` — request, content, and deploy flows
+- `docs/CONTENT_AUDIT.md` — migration inventory and decisions
+- `docs/MIGRATION_REPORT.md` — what moved, changed, or remains
+- `docs/CMS_SETUP.md` — editing and controlled acceptance tests
+- `docs/CMS_AUTH_SETUP.md` — OAuth Worker design and secrets
+- `docs/CLOUDFLARE_SETUP.md` — build/deploy/cutover/rollback
+- `docs/APP_STORE_WEBSITE_CHECKLIST.md` — candidate-specific website readiness
+- `docs/APP_STORE_DATA_INVENTORY.md` — SDK and data-flow questionnaire
+- `docs/MANUAL_ACTIONS.md` — credential-only work with verification and rollback

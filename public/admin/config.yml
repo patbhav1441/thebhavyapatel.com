@@ -1,0 +1,597 @@
+backend:
+  name: github
+  repo: patbhav1441/thebhavyapatel.com
+  branch: main
+  base_url: https://auth.thebhavyapatel.com
+  auth_endpoint: auth
+  auth_scope: public_repo
+  use_graphql: true
+
+publish_mode: simple
+site_url: https://www.thebhavyapatel.com
+display_url: https://www.thebhavyapatel.com
+logo_url: /favicon.svg
+local_backend: true
+
+media_folder: public/media
+public_folder: /media
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: settings
+    label: Site Settings
+    files:
+      - name: site
+        label: Identity and contact
+        file: src/data/site.json
+        format: json
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Short name, name: shortName, widget: string, hint: Used for compact marks. }
+          - {
+              label: Canonical URL,
+              name: canonicalUrl,
+              widget: string,
+              pattern: ['^https://www\.thebhavyapatel\.com$', "Use the canonical www URL."],
+            }
+          - { label: Default title, name: defaultTitle, widget: string }
+          - { label: Default description, name: defaultDescription, widget: text }
+          - { label: Public email, name: email, widget: string, required: false }
+          - { label: Location, name: location, widget: string, required: false }
+          - { label: Availability, name: availability, widget: string, required: false }
+          - label: Social links
+            name: socials
+            widget: object
+            fields:
+              - { label: GitHub, name: github, widget: string, required: false }
+              - { label: LinkedIn, name: linkedin, widget: string, required: false }
+          - {
+              label: Resume path,
+              name: resumePath,
+              widget: file,
+              required: false,
+              hint: Upload only a reviewed PDF.,
+            }
+          - {
+              label: Default social image,
+              name: defaultSocialImage,
+              widget: image,
+              required: false,
+            }
+          - {
+              label: Copyright start year,
+              name: copyrightStartYear,
+              widget: number,
+              value_type: int,
+              min: 2000,
+              max: 2100,
+            }
+      - name: homepage
+        label: Homepage
+        file: src/data/home.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Name, name: name, widget: string }
+              - {
+                  label: Headline,
+                  name: headline,
+                  widget: string,
+                  hint: Keep this direct and short.,
+                }
+              - { label: Supporting text, name: supportingText, widget: text }
+              - { label: Handwritten word, name: handwrittenWord, widget: string }
+              - label: Primary action
+                name: primaryAction
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+              - label: Secondary action
+                name: secondaryAction
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+          - {
+              label: Selected work limit,
+              name: selectedWorkLimit,
+              widget: number,
+              value_type: int,
+              min: 1,
+              max: 12,
+            }
+          - {
+              label: Current focus,
+              name: currentFocus,
+              widget: list,
+              field: { label: Focus item, name: item, widget: string },
+            }
+          - { label: About summary, name: aboutSummary, widget: text }
+          - { label: Closing statement, name: closingStatement, widget: text }
+      - name: navigation
+        label: Navigation
+        file: src/data/navigation.json
+        format: json
+        fields:
+          - label: Primary navigation
+            name: primary
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string }
+          - label: Footer navigation
+            name: footer
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string }
+
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: src/content/projects
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    identifier_field: slug
+    summary: "{{projectCode}} · {{title}} · {{status}} · published={{published}}"
+    sortable_fields: [order, title, status]
+    fields:
+      - { label: Title, name: title, widget: string, hint: Public project title. }
+      - {
+          label: Slug,
+          name: slug,
+          widget: string,
+          pattern:
+            [
+              "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "Lowercase kebab-case only. Reserved routes will fail validation.",
+            ],
+        }
+      - {
+          label: Project code,
+          name: projectCode,
+          widget: string,
+          pattern: ['^BP-\d{2}$', "Use BP followed by two digits."],
+        }
+      - { label: Summary, name: summary, widget: text }
+      - {
+          label: Status,
+          name: status,
+          widget: select,
+          options:
+            [concept, research, building, private-beta, public-beta, shipped, paused, archived],
+        }
+      - {
+          label: Kind,
+          name: kind,
+          widget: select,
+          options: [product, research, internal-tool, hardware, case-study],
+        }
+      - {
+          label: Visibility,
+          name: visibility,
+          widget: select,
+          options: [public, case-study-only],
+          default: public,
+        }
+      - {
+          label: Published,
+          name: published,
+          widget: boolean,
+          default: false,
+          hint: A published record creates a public route.,
+        }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Needs factual review, name: needsReview, widget: boolean, default: true }
+      - { label: Order, name: order, widget: number, value_type: int, min: 0, max: 999 }
+      - {
+          label: Start year,
+          name: yearStart,
+          widget: number,
+          value_type: int,
+          min: 2000,
+          max: 2100,
+          required: false,
+        }
+      - {
+          label: End year,
+          name: yearEnd,
+          widget: number,
+          value_type: int,
+          min: 2000,
+          max: 2100,
+          required: false,
+        }
+      - { label: Role, name: role, widget: string, required: false }
+      - {
+          label: Categories,
+          name: categories,
+          widget: list,
+          required: false,
+          field: { label: Category, name: item, widget: string },
+        }
+      - {
+          label: Technologies,
+          name: technologies,
+          widget: list,
+          required: false,
+          field: { label: Technology, name: item, widget: string },
+        }
+      - { label: Problem, name: shortProblem, widget: text, required: false }
+      - { label: Direction / solution, name: shortSolution, widget: text, required: false }
+      - label: Features
+        name: features
+        widget: list
+        required: false
+        summary: "{{fields.title}}"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+      - label: Architecture notes
+        name: architecture
+        widget: list
+        required: false
+        summary: "{{fields.label}}"
+        fields:
+          - { label: Label, name: label, widget: string }
+          - { label: Description, name: description, widget: text }
+      - {
+          label: Outcomes,
+          name: outcomes,
+          widget: list,
+          required: false,
+          field: { label: Outcome, name: item, widget: string },
+        }
+      - label: Cover image
+        name: cover
+        widget: object
+        required: false
+        fields:
+          - {
+              label: Image,
+              name: src,
+              widget: image,
+              choose_url: false,
+              media_library: { config: { max_file_size: 5242880 } },
+            }
+          - {
+              label: Alt text,
+              name: alt,
+              widget: string,
+              hint: Describe the meaningful visual content.,
+            }
+      - label: Gallery
+        name: gallery
+        widget: list
+        required: false
+        fields:
+          - {
+              label: Image,
+              name: src,
+              widget: image,
+              choose_url: false,
+              media_library: { config: { max_file_size: 5242880 } },
+            }
+          - { label: Alt text, name: alt, widget: string }
+          - { label: Caption, name: caption, widget: string, required: false }
+      - label: Links
+        name: links
+        widget: object
+        required: false
+        fields:
+          - { label: Live product, name: live, widget: string, required: false }
+          - { label: Repository, name: repository, widget: string, required: false }
+          - { label: Demo, name: demo, widget: string, required: false }
+          - { label: Video, name: video, widget: string, required: false }
+      - {
+          label: Accent,
+          name: accent,
+          widget: select,
+          options: [blue, lime, amber, violet, neutral],
+          default: blue,
+        }
+      - label: SEO
+        name: seo
+        widget: object
+        fields:
+          - { label: SEO title, name: title, widget: string, required: false }
+          - { label: Description, name: description, widget: text }
+          - { label: Social image, name: image, widget: image, required: false }
+          - { label: Exclude from search, name: noindex, widget: boolean, default: false }
+      - label: App Store readiness
+        name: appStore
+        widget: object
+        required: false
+        fields:
+          - { label: App candidate, name: candidate, widget: boolean, default: false }
+          - { label: Account creation, name: accountCreation, widget: boolean, default: false }
+          - {
+              label: User-generated content,
+              name: userGeneratedContent,
+              widget: boolean,
+              default: false,
+            }
+          - { label: In-person meetups, name: inPersonMeetups, widget: boolean, default: false }
+          - {
+              label: Sensitive information,
+              name: processesSensitiveInformation,
+              widget: boolean,
+              default: false,
+            }
+          - { label: Verified support email, name: supportEmail, widget: string, required: false }
+          - {
+              label: Legal ready,
+              name: legalReady,
+              widget: boolean,
+              default: false,
+              hint: Do not enable without completing every readiness check.,
+            }
+          - { label: App Store URL, name: appStoreUrl, widget: string, required: false }
+      - { label: Case study, name: body, widget: markdown, required: false }
+
+  - name: project-pages
+    label: Project Pages
+    label_singular: Project Page
+    folder: src/content/project-pages
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{projectSlug}}--{{pageSlug}}"
+    summary: "{{projectSlug}}/{{pageSlug}} · {{status}}"
+    fields:
+      - {
+          label: Parent project slug,
+          name: projectSlug,
+          widget: relation,
+          collection: projects,
+          search_fields: [title, slug],
+          value_field: slug,
+          display_fields: [title, slug],
+        }
+      - {
+          label: Page slug,
+          name: pageSlug,
+          widget: string,
+          pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Lowercase kebab-case only."],
+        }
+      - {
+          label: Kind,
+          name: kind,
+          widget: select,
+          options:
+            [
+              privacy,
+              terms,
+              support,
+              delete-account,
+              community-guidelines,
+              safety,
+              accessibility,
+              custom,
+            ],
+        }
+      - { label: Title, name: title, widget: string }
+      - { label: Summary, name: summary, widget: text }
+      - {
+          label: Status,
+          name: status,
+          widget: select,
+          options: [draft, review, published],
+          default: draft,
+        }
+      - {
+          label: Effective date,
+          name: effectiveDate,
+          widget: datetime,
+          date_format: YYYY-MM-DD,
+          time_format: false,
+          format: YYYY-MM-DD,
+          required: false,
+        }
+      - {
+          label: Last updated,
+          name: lastUpdated,
+          widget: datetime,
+          date_format: YYYY-MM-DD,
+          time_format: false,
+          format: YYYY-MM-DD,
+          required: false,
+        }
+      - { label: Contact email, name: contactEmail, widget: string, required: false }
+      - { label: Robots, name: robots, widget: select, options: [index, noindex], default: noindex }
+      - label: Readiness checks
+        name: readiness
+        widget: object
+        fields:
+          - {
+              label: Factual review complete,
+              name: factualReviewComplete,
+              widget: boolean,
+              default: false,
+            }
+          - {
+              label: Data inventory complete,
+              name: dataInventoryComplete,
+              widget: boolean,
+              default: false,
+            }
+          - {
+              label: Processor inventory complete,
+              name: processorInventoryComplete,
+              widget: boolean,
+              default: false,
+            }
+          - {
+              label: Retention review complete,
+              name: retentionReviewComplete,
+              widget: boolean,
+              default: false,
+            }
+          - {
+              label: Deletion review complete,
+              name: deletionReviewComplete,
+              widget: boolean,
+              default: false,
+            }
+      - label: SEO
+        name: seo
+        widget: object
+        fields:
+          - { label: SEO title, name: title, widget: string, required: false }
+          - { label: Description, name: description, widget: text }
+      - { label: Document body, name: body, widget: markdown }
+
+  - name: experience
+    label: Experience
+    label_singular: Experience record
+    folder: src/content/experience
+    create: true
+    extension: md
+    format: frontmatter
+    summary: "{{role}} · {{organization}} · published={{published}}"
+    fields:
+      - { label: Organization, name: organization, widget: string }
+      - { label: Role, name: role, widget: string }
+      - { label: Location, name: location, widget: string, required: false }
+      - {
+          label: Start date,
+          name: startDate,
+          widget: string,
+          required: false,
+          hint: Use YYYY,
+          YYYY-MM,
+          or YYYY-MM-DD.,
+        }
+      - {
+          label: End date,
+          name: endDate,
+          widget: string,
+          required: false,
+          hint: Leave blank when current.,
+        }
+      - { label: Current, name: current, widget: boolean, default: false }
+      - { label: Summary, name: summary, widget: text }
+      - {
+          label: Highlights,
+          name: highlights,
+          widget: list,
+          required: false,
+          field: { label: Highlight, name: item, widget: string },
+        }
+      - {
+          label: Technologies,
+          name: technologies,
+          widget: list,
+          required: false,
+          field: { label: Technology, name: item, widget: string },
+        }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Order, name: order, widget: number, value_type: int, min: 0, max: 999 }
+      - { label: Published, name: published, widget: boolean, default: false }
+      - { label: Needs review, name: needsReview, widget: boolean, default: true }
+
+  - name: education
+    label: Education
+    folder: src/content/education
+    create: true
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: Institution, name: institution, widget: string }
+      - { label: Program, name: program, widget: string }
+      - { label: Field, name: field, widget: string, required: false }
+      - { label: Start date, name: startDate, widget: string, required: false }
+      - { label: End date, name: endDate, widget: string, required: false }
+      - { label: Current, name: current, widget: boolean, default: false }
+      - { label: Location, name: location, widget: string, required: false }
+      - {
+          label: Highlights,
+          name: highlights,
+          widget: list,
+          required: false,
+          field: { label: Highlight, name: item, widget: string },
+        }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Order, name: order, widget: number, value_type: int, min: 0, max: 999 }
+      - { label: Published, name: published, widget: boolean, default: false }
+      - { label: Needs review, name: needsReview, widget: boolean, default: true }
+
+  - name: research
+    label: Research
+    folder: src/content/research
+    create: true
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Organization, name: organization, widget: string }
+      - { label: Role, name: role, widget: string }
+      - { label: Start date, name: startDate, widget: string, required: false }
+      - { label: End date, name: endDate, widget: string, required: false }
+      - { label: Current, name: current, widget: boolean, default: false }
+      - { label: Summary, name: summary, widget: text }
+      - {
+          label: Topics,
+          name: topics,
+          widget: list,
+          required: false,
+          field: { label: Topic, name: item, widget: string },
+        }
+      - {
+          label: Links,
+          name: links,
+          widget: list,
+          required: false,
+          field: { label: URL, name: item, widget: string },
+        }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Order, name: order, widget: number, value_type: int, min: 0, max: 999 }
+      - { label: Published, name: published, widget: boolean, default: false }
+      - { label: Needs review, name: needsReview, widget: boolean, default: true }
+
+  - name: credentials
+    label: Credentials
+    folder: src/content/credentials
+    create: true
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Issuer, name: issuer, widget: string }
+      - {
+          label: Issue date,
+          name: issueDate,
+          widget: datetime,
+          date_format: YYYY-MM-DD,
+          time_format: false,
+          format: YYYY-MM-DD,
+          required: false,
+        }
+      - {
+          label: Expiration date,
+          name: expirationDate,
+          widget: datetime,
+          date_format: YYYY-MM-DD,
+          time_format: false,
+          format: YYYY-MM-DD,
+          required: false,
+        }
+      - { label: Credential URL, name: credentialUrl, widget: string, required: false }
+      - { label: Credential ID, name: credentialId, widget: string, required: false }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Order, name: order, widget: number, value_type: int, min: 0, max: 999 }
+      - { label: Published, name: published, widget: boolean, default: false }
+      - { label: Needs review, name: needsReview, widget: boolean, default: true }

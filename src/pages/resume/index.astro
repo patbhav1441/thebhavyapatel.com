@@ -1,0 +1,49 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { site } from "@lib/settings";
+---
+
+<BaseLayout
+  title="Resume — Bhavya Patel"
+  description="Download Bhavya Patel's one-page resume covering current research, product work, leadership, skills, and education."
+  path="/resume/"
+  noindex={!site.resumePath}
+>
+  <header class="page-intro shell">
+    <p class="eyebrow">Resume</p>
+    <h1>Current work, kept to one page.</h1>
+    <p>
+      A compact summary of current research, product building, student leadership, technical work,
+      education, and selected projects. Updated August 2026.
+    </p>
+    {
+      site.resumePath ? (
+        <div class="hero-actions">
+          <a class="button-link" href={site.resumePath} download>
+            Download one-page PDF
+          </a>
+          <a class="button-link secondary" href={site.resumePath} target="_blank" rel="noreferrer">
+            Open in browser
+          </a>
+        </div>
+      ) : (
+        <p class="notice">
+          A reviewed résumé PDF has not yet been supplied. Nothing fabricated or stale is being
+          offered as a download.
+        </p>
+      )
+    }
+  </header>
+  <section class="section">
+    <div class="shell section-heading">
+      <p class="eyebrow">Supporting record</p>
+      <div>
+        <h2>Explore the work behind the page.</h2><p>
+          <a class="text-link" href="/work/">Explore work</a> · <a class="text-link" href="/about/"
+            >Read about</a
+          > · <a class="text-link" href="/contact/">Contact Bhavya</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

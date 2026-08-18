@@ -1,0 +1,23 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Content admin — Bhavya Patel"
+  description="Private GitHub-backed content administration for the Bhavya Patel portfolio."
+  path="/admin/"
+  noindex={true}
+  bare={true}
+>
+  <noscript
+    ><p class="notice">
+      The content editor requires JavaScript. Public portfolio pages do not.
+    </p></noscript
+  >
+  <div id="nc-root" aria-label="Portfolio content editor"></div>
+</BaseLayout>
+
+<script>
+  import CMS from "decap-cms-app";
+  CMS.init();
+</script>

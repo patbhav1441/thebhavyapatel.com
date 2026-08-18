@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Not found — Bhavya Patel"
+  description="The requested page does not exist in the Bhavya Systems Index."
+  path="/404/"
+  noindex={true}
+>
+  <header class="page-intro shell">
+    <p class="eyebrow">404 / Outside the index</p>
+    <h1>This route has no record.</h1>
+    <p>Return to the systems index or continue through the published work.</p>
+    <div class="hero-actions">
+      <a class="button-link" href="/">Go home</a><a class="button-link secondary" href="/work/"
+        >View work</a
+      >
+    </div>
+  </header>
+</BaseLayout>

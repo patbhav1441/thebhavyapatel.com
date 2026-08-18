@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "name": "Bhavya Patel",
+    "headline": "I build things",
+    "supportingText": "Student researcher and builder exploring software, AI, product systems, and emerging computing.",
+    "handwrittenWord": "jack of all trades",
+    "primaryAction": {
+      "label": "Explore selected work",
+      "href": "/work/"
+    },
+    "secondaryAction": {
+      "label": "Contact Bhavya",
+      "href": "/contact/"
+    }
+  },
+  "selectedWorkLimit": 6,
+  "currentFocus": [
+    "Building student-centered product concepts",
+    "Exploring agent systems and applied AI",
+    "Documenting research and technical experiments"
+  ],
+  "aboutSummary": "I am an undergraduate student at Kennesaw State University interested in the space where software, research, and practical products meet. My work ranges from student tools and agent systems to machine-learning experiments and emerging computing.",
+  "closingStatement": "The common thread is curiosity made concrete: a question, a system, and something useful enough to test."
+}

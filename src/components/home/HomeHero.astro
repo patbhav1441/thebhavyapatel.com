@@ -1,0 +1,28 @@
+---
+import { home } from "@lib/settings";
+import HandwrittenWord from "./HandwrittenWord.astro";
+---
+
+<section class="hero shell" aria-labelledby="hero-title">
+  <div>
+    <div class="hero-topline">
+      <p class="eyebrow">Bhavya Systems Index / 2026</p>
+      <p class="meta">Georgia, United States</p>
+    </div>
+    <h1 class="hero-title" id="hero-title">{home.hero.headline}</h1>
+  </div>
+  <div class="hero-bottom">
+    <div>
+      <p class="hero-copy">{home.hero.supportingText}</p>
+      <div class="hero-actions">
+        <a class="button-link" href={home.hero.primaryAction.href}
+          >{home.hero.primaryAction.label}</a
+        >
+        <a class="button-link secondary" href={home.hero.secondaryAction.href}
+          >{home.hero.secondaryAction.label}</a
+        >
+      </div>
+    </div>
+    <HandwrittenWord word={home.hero.handwrittenWord} />
+  </div>
+</section>
