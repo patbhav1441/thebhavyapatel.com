@@ -15,6 +15,7 @@ const required = [
   "stock-predictor/index.html",
   "ai-therapist/index.html",
   "fhs-checklist/index.html",
+  "fhs-checklist/privacy/index.html",
   "vlogz/index.html",
   "404.html",
   "admin/config.yml",

@@ -2,6 +2,19 @@
 
 This is a readiness record, not legal advice. Creating a URL does not by itself satisfy privacy, deletion, moderation, support, safety, or store-policy obligations.
 
+## FHS: To do list
+
+Current state: the sanitized marketing page and public privacy policy are published in the site source. The existing contact page is the support URL. The App Store release remains gated on the final binary, production APNs/Live Activity verification, a sanitized review account, and App Store Connect review fields.
+
+- [x] Marketing route: `/fhs-checklist/` with `/fhschecklist` compatibility redirect.
+- [x] Privacy route: `/fhs-checklist/privacy/` with `/fhs-privacy` compatibility redirect.
+- [x] Support route: `/contact/` and verified support email.
+- [x] Data and processor inventory aligned with the shipping iOS source and Supabase deployment.
+- [x] Seven-day identifying task-detail and photo deletion documented and backed by the hosted retention worker.
+- [ ] Verify production APNs notifications and remote Live Activity updates on physical devices.
+- [ ] Create a sanitized App Review account and keep its credentials only in App Store Connect.
+- [ ] Recheck the published URLs after every deployment and before every App Store submission.
+
 ## StuddyBuddy
 
 Current state: technical route architecture exists; all six nested documents are drafts, excluded from search, and absent from the public build. `legalReady`, `accountDeletionReady`, `moderationReady`, and `supportReady` remain false.
@@ -34,7 +47,7 @@ Current state: public portfolio case-study route only; no verified store availab
 
 ## Other projects
 
-No other project is currently marked as an App Store candidate. Re-evaluate this record before changing availability or readiness flags.
+Re-evaluate this record before changing any other project's App Store availability or readiness flags.
 
 ## Release evidence
 

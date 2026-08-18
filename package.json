@@ -18,7 +18,7 @@
     "validate:routes": "tsx scripts/validate-routes.ts",
     "validate:placeholders": "tsx scripts/validate-placeholders.ts",
     "test": "vitest run",
-    "test:e2e": "playwright test",
+    "test:e2e": "astro build && playwright test",
     "test:e2e:ui": "playwright test --ui",
     "check": "npm run format:check && npm run lint && npm run check:astro && npm run check:worker && npm run validate:content && npm run validate:routes && npm run validate:placeholders && npm run test",
     "build": "npm run check && astro build && npm run smoke",

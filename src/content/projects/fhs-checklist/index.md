@@ -24,6 +24,14 @@ seo:
   title: FHS Checklist — Bhavya Patel
   description: A sanitized workflow case study by Bhavya Patel focused on checklist state, handoffs, and repeatable operations.
   noindex: true
+appStore:
+  candidate: true
+  accountCreation: false
+  userGeneratedContent: false
+  inPersonMeetups: false
+  processesSensitiveInformation: true
+  supportEmail: patelbhavya216@gmail.com
+  legalReady: false
 ---
 
 This case study intentionally stays at the workflow level. It does not publish employee names, credentials, schedules, financial information, customer data, internal endpoints, private screenshots, or proprietary procedures.
