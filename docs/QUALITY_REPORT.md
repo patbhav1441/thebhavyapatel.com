@@ -17,7 +17,11 @@ Playwright covers every public route, canonical metadata, exactly one H1, consol
 
 The current isolated preview is deployed to `thebhavyapatel-com-preview` at `https://thebhavyapatel-com-preview.patelbhavya216.workers.dev`. The public route matrix returns 200 for all core and project routes, the resume PDF returns `application/pdf`, and `/products/` plus `/fhschecklist/` resolve to their canonical routes. Unknown and unpublished StuddyBuddy policy routes return 404. Remote Chromium loaded `/` and `/admin/` without console or uncaught page errors, and the admin rendered the GitHub login control. Public, immutable-asset, and admin-specific security headers matched the repository policies.
 
-The snapshot has no custom domains. Cloudflare still reports `thebhavyapatel.com` and `www.thebhavyapatel.com` only on the preserved `officialweb` Worker, whose deployment timestamp remains unchanged. The snapshot is a durable review artifact, not a substitute for the Git-triggered deployment configured in `MANUAL_ACTIONS.md`.
+## Production release
+
+PR #1 merged to `main` at `0c2fbb5` on 2026-08-18. Cloudflare production version `d6eb818f-cca0-4608-bf23-1880d1e48d87` serves `www.thebhavyapatel.com`; the apex is attached to the same Worker and permanently redirects to `www` with its path and query preserved. Live probes returned 200 for the homepage, résumé, PDF, StuddyBuddy, FHS Checklist, Zargon, work index, and admin; `/products/` and `/fhschecklist/` redirected to their canonical routes; the unknown-route probe returned the custom 404. The OAuth health endpoint returned 200, a correctly formed live-origin request redirected to GitHub, and an invalid origin returned 403.
+
+Cloudflare reports both public custom domains on `thebhavyapatel-com` and the auth custom domain on `thebhavyapatel-cms-auth`. The legacy `officialweb` Worker is preserved without custom domains during stabilization.
 
 ## Lighthouse
 

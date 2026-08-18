@@ -23,7 +23,7 @@ The single JavaScript-rendered page became static `/`, `/work/`, `/about/`, `/re
 
 ## Redirects and canonical behavior
 
-`public/_redirects` normalizes common non-trailing-slash routes and maps `/products/` to `/work/` and `/fhschecklist/` to `/fhs-checklist/`. Canonical metadata uses `https://www.thebhavyapatel.com`. The apex-to-`www` redirect remains a Cloudflare cutover action because the current production deployment must not be disturbed before preview acceptance.
+`public/_redirects` normalizes common non-trailing-slash routes and maps `/products/` to `/work/` and `/fhschecklist/` to `/fhs-checklist/`. Canonical metadata uses `https://www.thebhavyapatel.com`. Since 2026-08-18, a Cloudflare Single Redirect permanently sends the apex hostname to `www` while preserving paths and query strings.
 
 ## Media
 
@@ -40,4 +40,4 @@ Added: schema validation, Decap CMS, OAuth Worker, Workers Static Assets config,
 - Review migrated factual records and selectively publish them.
 - Supply approved images, alt text, project URLs, and any authorized testimonials; keep the generated one-page resume current as roles change.
 - Complete StuddyBuddy/Vlogz product, privacy, moderation, support, deletion, and App Store decisions.
-- Complete GitHub OAuth credentials, Cloudflare Git automation, CMS acceptance, and production cutover actions. An isolated Cloudflare review snapshot is already deployed without production domains.
+- Complete the owner-only GitHub authorization and controlled CMS edit/commit/build/revert acceptance test. OAuth secrets, custom domains, the production Worker, and the canonical apex redirect are already configured.
