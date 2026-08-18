@@ -12,6 +12,7 @@ const publicRoutes = [
   "/stock-predictor/",
   "/ai-therapist/",
   "/fhs-checklist/",
+  "/fhs-checklist/privacy/",
   "/vlogz/",
 ];
 
@@ -73,6 +74,22 @@ test("draft StuddyBuddy policy routes are not published", async ({ page }) => {
   }
 });
 
+test("FHS privacy policy is public, canonical, and describes the seven-day boundary", async ({
+  page,
+}) => {
+  const response = await page.goto("/fhs-checklist/privacy/");
+  expect(response?.ok()).toBe(true);
+  await expect(page.getByRole("heading", { level: 1, name: "Privacy Policy" })).toBeVisible();
+  await expect(
+    page.getByText("automatically deleted after seven days", { exact: false }).last(),
+  ).toBeVisible();
+  await expect(page.getByText("no advertising or tracking", { exact: false })).toBeVisible();
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://www.thebhavyapatel.com/fhs-checklist/privacy/",
+  );
+});
+
 test("keyboard focus activates the same project preview as hover", async ({ page }) => {
   await page.goto("/");
   const secondLink = page.locator("[data-project-link='1']");
@@ -92,7 +109,7 @@ test("mobile menu opens, closes with Escape, and returns focus", async ({ page }
 });
 
 test("representative pages have no serious axe violations", async ({ page }) => {
-  for (const route of ["/", "/studdybuddy/", "/contact/"]) {
+  for (const route of ["/", "/studdybuddy/", "/fhs-checklist/privacy/", "/contact/"]) {
     await page.goto(route);
     const results = await new AxeBuilder({ page }).analyze();
     expect(
