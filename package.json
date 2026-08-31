@@ -44,7 +44,7 @@
     "@axe-core/playwright": "4.13.0",
     "@eslint/js": "10.0.1",
     "@playwright/test": "1.62.1",
-    "@typescript-eslint/parser": "8.67.0",
+    "@typescript-eslint/parser": "8.68.0",
     "decap-server": "3.10.0",
     "eslint": "10.8.1",
     "eslint-plugin-astro": "3.1.0",
