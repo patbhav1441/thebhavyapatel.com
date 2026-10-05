@@ -3,10 +3,11 @@ projectSlug: fhs-checklist
 pageSlug: privacy
 kind: privacy
 title: Privacy Policy
-summary: "How FHS: To do list handles authorized store accounts, checklist activity, task photos, notifications, and retention."
+summary: "How FHS: Todo list handles authorized store accounts, checklist
+  activity, task photos, notifications, and retention."
 status: published
-effectiveDate: "2026-08-15"
-lastUpdated: "2026-08-18"
+effectiveDate: 2026-10-05
+lastUpdated: 2026-10-05
 contactEmail: patelbhavya216@gmail.com
 robots: index
 readiness:
@@ -16,23 +17,24 @@ readiness:
   retentionReviewComplete: true
   deletionReviewComplete: true
 seo:
-  title: "FHS: To do list privacy policy"
-  description: "Privacy policy for FHS: To do list, the account-gated operations checklist for authorized PSM LLC store teams."
+  title: "FHS: Todo list privacy policy"
+  description: "Privacy policy for FHS: Todo list, the account-gated operations
+    checklist for authorized store teams. (Restaurants, Warehouses, Dental
+    Offices, Medical Centers, Retail, etc.)"
 ---
-
-**The short version:** FHS: To do list is an internal checklist for authorized PSM LLC store teams. It has no advertising or tracking. Identifying task-completion details and related task photos are automatically deleted after seven days.
+**The short version:** FHS: Todo list is an internal checklist for authorized store teams. It has no advertising or tracking. Identifying task-completion details and related task photos are automatically deleted after seven days.
 
 ## Who operates the app
 
-FHS: To do list is offered by Bhavya Patel for PSM LLC store operations. Questions and privacy requests may be sent to [patelbhavya216@gmail.com](mailto:patelbhavya216@gmail.com).
+FHS: Todo list is offered by Bhavya Patel for store operations. Questions and privacy requests may be sent to [patelbhavya216@gmail.com](mailto:patelbhavya216@gmail.com).
 
 ## Information we collect
 
-- **Account information:** name, username, assigned store locations, role, and authentication identifiers.
-- **Checklist activity:** tasks selected or completed, completion status, completion time, and the completing person's name.
-- **Task evidence:** a new camera photo only for applicable team-facing Closing cleanup tasks, such as sweeping, mopping, taking out trash, washing dishes, and similar cleaning work. Prep, slicing, Opening, Day Shift, and GM tasks do not require photos. The app does not offer photo-library or file uploads.
-- **Device and security information:** push-notification token, session identifiers, request identifiers, and limited security or audit records needed to operate and protect the service.
-- **Content entered while using the app:** task comments or review results when those fields apply.
+* **Account information:** name, username, assigned store locations, role, and authentication identifiers.
+* **Checklist activity:** tasks selected or completed, completion status, completion time, and the completing person's name.
+* **Task evidence:** a new camera photo only for applicable team-facing Closing cleanup tasks, such as sweeping, mopping, taking out trash, washing dishes, and similar cleaning work. Prep, slicing, Opening, Day Shift, and GM tasks do not require photos. The app does not offer photo-library or file uploads.
+* **Device and security information:** push-notification token, session identifiers, request identifiers, and limited security or audit records needed to operate and protect the service.
+* **Content entered while using the app:** task comments or review results when those fields apply.
 
 ## How information is used
 
@@ -48,7 +50,7 @@ The person's name attached to a completed task, the exact task-completion record
 
 ## Who can see information
 
-Each person sees only their own account. Authorized team users see the shared checklist for stores assigned to them. GMs may see task progress, task-specific completion stamps and photos, and the minimum account roster necessary for stores they manage. Owners may see the same information across PSM LLC locations and may manage GMs and team accounts. Access is enforced on the server.
+Each person sees only their own account. Authorized team users see the shared checklist for stores assigned to them. GMs may see task progress, task-specific completion stamps and photos, and the minimum account roster necessary for stores they manage. Owners may see the same information across locations and may manage GMs and team accounts. Access is enforced on the server.
 
 ## Notifications and camera
 
