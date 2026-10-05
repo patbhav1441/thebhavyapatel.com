@@ -2,19 +2,25 @@
 title: FHS Checklist
 slug: fhs-checklist
 projectCode: BP-05
-summary: A sanitized operational checklist case study focused on clearer task state, handoffs, and repeatable day-to-day workflows.
+summary: A general-purpose operations checklist that helps business owners and their teams coordinate recurring work, handoffs, and completion evidence across locations.
 status: building
-kind: internal-tool
-visibility: case-study-only
+kind: product
+visibility: public
 published: true
 featured: true
 needsReview: true
 order: 5
-categories: [Workflow, Internal tool]
+categories: [Operations, Productivity, Business tools]
 technologies: [Product design, Workflow modeling]
-shortProblem: Repeated operational tasks become difficult to coordinate when ownership, sequence, and completion state are unclear.
-shortSolution: Explore a checklist interface that makes task state and handoffs visible without exposing private operational data.
-features: []
+shortProblem: Business owners across industries need a clear way to coordinate recurring work when responsibility, sequence, and completion status are spread across people or locations.
+shortSolution: Provide a flexible checklist workspace that helps any business configure its own routines, assign access by role and location, and keep completion progress visible.
+features:
+  - title: Configurable operations
+    description: Businesses can organize recurring checklists around their own teams, locations, schedules, and operating procedures.
+  - title: Shared completion visibility
+    description: Authorized team members can coordinate task status, completion times, comments, and supporting photos when a workflow requires evidence.
+  - title: Role- and location-based access
+    description: Owners and managers can oversee the locations and teams assigned to them without exposing unrelated business information.
 architecture: []
 outcomes: []
 gallery: []
@@ -22,8 +28,8 @@ links: {}
 accent: neutral
 seo:
   title: FHS Checklist — Bhavya Patel
-  description: A sanitized workflow case study by Bhavya Patel focused on checklist state, handoffs, and repeatable operations.
-  noindex: true
+  description: A general-purpose operations checklist for business owners and teams to coordinate recurring work, handoffs, and progress across locations.
+  noindex: false
 appStore:
   candidate: true
   accountCreation: false
@@ -34,6 +40,12 @@ appStore:
   legalReady: false
 ---
 
-This case study intentionally stays at the workflow level. It does not publish employee names, credentials, schedules, financial information, customer data, internal endpoints, private screenshots, or proprietary procedures.
+## Mission
 
-The public version documents the design problem and a generic interaction model only. It does not claim official endorsement or affiliation.
+FHS Checklist is designed to help business owners everywhere run recurring operations with more clarity and accountability. It is a general-purpose product for organizations across industries—not a custom app for, or an offering limited to, any single company, brand, franchise, or type of business.
+
+Each business defines its own locations, team access, and operating checklists. The product provides the shared workflow structure; it does not prescribe one company's procedures.
+
+## Privacy by design
+
+The public page does not expose employee names, credentials, schedules, financial information, customer data, internal endpoints, private screenshots, or proprietary procedures. Product access is restricted to authorized accounts, and the published privacy policy explains the applicable data handling and retention boundaries.

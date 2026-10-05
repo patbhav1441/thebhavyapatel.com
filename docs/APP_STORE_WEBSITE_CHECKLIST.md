@@ -2,9 +2,9 @@
 
 This is a readiness record, not legal advice. Creating a URL does not by itself satisfy privacy, deletion, moderation, support, safety, or store-policy obligations.
 
-## FHS: To do list
+## FHS Checklist
 
-Current state: the sanitized marketing page and public privacy policy are published in the site source. The existing contact page is the support URL. The App Store release remains gated on the final binary, production APNs/Live Activity verification, a sanitized review account, and App Store Connect review fields.
+Current state: the general-audience product page and public privacy policy are published in the site source. Both describe FHS Checklist as a general-purpose operations product for businesses across industries, not a custom app for one company, brand, franchise, or industry. The existing contact page is the support URL. The App Store release remains gated on the final binary, production APNs/Live Activity verification, a sanitized review account, and App Store Connect review fields.
 
 - [x] Marketing route: `/fhs-checklist/` with `/fhschecklist` compatibility redirect.
 - [x] Privacy route: `/fhs-checklist/privacy/` with `/fhs-privacy` compatibility redirect.

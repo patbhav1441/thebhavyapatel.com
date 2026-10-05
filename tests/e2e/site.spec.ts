@@ -74,12 +74,18 @@ test("draft StuddyBuddy policy routes are not published", async ({ page }) => {
   }
 });
 
-test("FHS privacy policy is public, canonical, and describes the seven-day boundary", async ({
+test("FHS is positioned for businesses broadly and keeps its privacy boundaries", async ({
   page,
 }) => {
   const response = await page.goto("/fhs-checklist/privacy/");
   expect(response?.ok()).toBe(true);
   await expect(page.getByRole("heading", { level: 1, name: "Privacy Policy" })).toBeVisible();
+  await expect(
+    page.getByText("general-purpose operations checklist", { exact: false }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("not limited to, sponsored by, affiliated with", { exact: false }),
+  ).toBeVisible();
   await expect(
     page.getByText("automatically deleted after seven days", { exact: false }).last(),
   ).toBeVisible();
