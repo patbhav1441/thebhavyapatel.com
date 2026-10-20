@@ -1,13 +1,13 @@
 ---
-projectSlug: fhs-checklist
+projectSlug: countercrew
 pageSlug: privacy
 kind: privacy
 title: Privacy Policy
-summary: "How FHS Checklist handles business accounts, checklist activity,
+summary: "How CounterCrew handles business accounts, checklist activity,
   task photos, notifications, and retention for owners and authorized teams."
 status: published
-effectiveDate: "2026-10-18"
-lastUpdated: "2026-10-18"
+effectiveDate: "2026-10-20"
+lastUpdated: "2026-10-20"
 contactEmail: patelbhavya216@gmail.com
 robots: index
 readiness:
@@ -17,23 +17,23 @@ readiness:
   retentionReviewComplete: true
   deletionReviewComplete: true
 seo:
-  title: "FHS Checklist privacy policy"
-  description: "Privacy policy for FHS Checklist, a general-purpose operations
-    checklist for business owners and authorized teams across industries."
+  title: "CounterCrew privacy policy"
+  description: "Privacy policy for CounterCrew, a restaurant operations
+    checklist for independent and franchise operators and their authorized teams."
 ---
 
-**The short version:** FHS Checklist is an operations checklist for business owners and their authorized teams. It has no advertising or tracking. Detailed daily records and task photos expire after seven days. A separate minimal work-metrics record lasts up to 90 days or until employment ends. Private coaching and warning records remain for the duration of employment.
+**The short version:** CounterCrew is an operations checklist for business owners and their authorized teams. It has no advertising or tracking. Detailed daily records and task photos expire after seven days. A separate minimal work-metrics record lasts up to 90 days or until employment ends. Private coaching and warning records remain for the duration of employment.
 
 ## Who operates the app
 
-FHS Checklist is offered by Bhavya Patel with a mission to help business owners everywhere coordinate recurring operations, team responsibilities, and completion progress. It is not limited to, sponsored by, affiliated with, or built exclusively for any single business, brand, franchise, or industry. Questions and privacy requests may be sent to [patelbhavya216@gmail.com](mailto:patelbhavya216@gmail.com).
+CounterCrew is offered by Bhavya Patel to help restaurant operators coordinate recurring work and their authorized teams. This policy also covers earlier versions distributed as FHS Checklist using the same service. It is not limited to, sponsored by, affiliated with, or built exclusively for any single business, brand, franchise, or industry. Questions and privacy requests may be sent to [patelbhavya216@gmail.com](mailto:patelbhavya216@gmail.com).
 
 ## Information we collect
 
-- **Account information:** name, username, assigned business locations, role, and authentication identifiers.
+- **Account and business information:** name, username, business and restaurant names, restaurant number, assigned locations, role, and authentication identifiers. Owner signup creates a separate business workspace. No real email address is required for in-app signup; support correspondence may include information you choose to send.
 - **Checklist activity:** tasks selected or completed, completion status, completion time, and the completing person's name.
 - **Task evidence:** a new camera photo for applicable tasks requiring proof of completion, such as cleaning or closing work. Ordinary confirmation tasks can also accept an optional new photo. The app does not offer photo-library or file uploads.
-- **Device and security information:** push-notification token, designated-device and session identifiers, request identifiers, and Apple App Attest keys and counters used to protect ordering-presence requests.
+- **Device and security information:** push-notification token, designated-device and session identifiers, request identifiers, hashed signup network addresses retained for up to 24 hours, hashed owner recovery keys, and Apple App Attest keys/counters used to protect ordering-presence requests. Passwords are processed by the authentication service and are not stored by the app. Save the owner recovery key privately; anyone who holds it can reset that owner password.
 - **Work metrics:** explicit Begin Task, Pause, Resume and Finish Work activity, active and paused duration, uncertainty flags, and category-specific completion credit. These are self-reported operational measures, not a payroll time clock or an automatic employment decision.
 - **Ordering presence:** when an authorized GM or AGM requests a presence check, the app processes a fresh precise foreground location, accuracy and sample time to check the configured restaurant boundary. Coordinates are processed transiently and are not stored as a location history. There is no background location tracking.
 - **Content entered while using the app:** task help/comments, prep and waste counts, weekly cleaning completion and review, customer remake names and order details, team updates, private coaching/warnings, and signed acknowledgments.
@@ -54,7 +54,7 @@ A separate minimal projection of employee identity, task category/reference, tim
 
 Private coaching/warning records and their acknowledgments remain during employment and are removed when the profile is deactivated or all active organization memberships end. Prep targets, units and other restaurant configuration remain as configuration. Anonymous location-and-day totals may remain because they do not identify a person or retain a photo or exact task record.
 
-Presence grants and verification proofs are short-lived and cannot authorize work after expiry. App Attest key bindings remain while needed for the designated installation; device reset or account deactivation removes them. Active account information is kept while access is needed. A deactivated account is anonymized after the configured seven-day cleanup window, subject to reliable service operation and backup lifecycle.
+Presence grants and verification proofs are short-lived and cannot authorize work after expiry. App Attest key bindings remain while needed for the designated installation; device reset or account deactivation removes them. Active account information is kept while access is needed. Manager-deactivated accounts follow the configured seven-day profile cleanup window. A user-initiated account deletion immediately ends access and anonymizes the profile; the authentication credentials/identities are removed, with a queued retry if the authentication service is temporarily unavailable. Employment metrics and warnings are removed when employment ends. Shared daily work and photos remain only within their existing seven-day window. Non-personal audit identifiers and business configuration may remain for the team; an empty public workspace closes and its business/location labels are anonymized.
 
 ## Who can see information
 
@@ -70,7 +70,7 @@ We use encrypted network connections, private file storage, role- and location-b
 
 ## Your choices
 
-You may decline notifications or stop a Live Activity without losing checklist access. For account correction, access removal, or a privacy request, contact your manager or business owner, or email [patelbhavya216@gmail.com](mailto:patelbhavya216@gmail.com). We may need to verify that the requester controls the relevant account.
+You may decline notifications or stop a Live Activity without losing checklist access. To delete your own account, use Account menu → Delete account (also available before Begin Shift), enter your current password and confirm. A sole owner with active staff can first appoint another active GM as owner in that screen; the GM must end their shift before transfer. For account correction, support or a privacy request, contact your manager or business owner, or email [patelbhavya216@gmail.com](mailto:patelbhavya216@gmail.com). We may need to verify that the requester controls the relevant account.
 
 ## Children
 
