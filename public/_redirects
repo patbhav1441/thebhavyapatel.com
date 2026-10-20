@@ -4,9 +4,13 @@
 /projects/ /work/ 301
 /products /work/ 301
 /products/ /work/ 301
-/fhschecklist /fhs-checklist/ 301
-/fhschecklist/ /fhs-checklist/ 301
-/fhs-privacy /fhs-checklist/privacy/ 301
-/fhs-privacy/ /fhs-checklist/privacy/ 301
+/fhschecklist /countercrew/ 301
+/fhschecklist/ /countercrew/ 301
+/fhs-privacy /countercrew/privacy/ 301
+/fhs-privacy/ /countercrew/privacy/ 301
 /studdybuddy /studdybuddy/ 301
 /zargon /zargon/ 301
+/fhs-checklist /countercrew/ 301
+/fhs-checklist/ /countercrew/ 301
+/fhs-checklist/privacy /countercrew/privacy/ 301
+/fhs-checklist/privacy/ /countercrew/privacy/ 301
