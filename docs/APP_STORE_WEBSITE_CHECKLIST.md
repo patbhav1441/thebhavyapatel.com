@@ -45,6 +45,19 @@ Current state: public portfolio case-study route only; no verified store availab
 - [ ] Confirm the product and backend implement every described user control.
 - [ ] Supply and verify store listing URLs only after publication.
 
+## Reelo
+
+As of 2026-11-05, version 1.0 build 3 has uploaded to App Store Connect; public App Review has not been submitted. The developer confirmed authenticated Saved scanning and video/audio web playback in the iPhone simulator. This does not establish exhaustive Saved access or third-party authorization.
+
+- [x] Project route: `/reelo/`, without a public-store availability claim.
+- [x] Privacy and support source: `/reelo/privacy/` and `/reelo/support/`.
+- [x] Current binary inventory: local video files, bookmarks and playlists; optional persistent Instagram WebKit session; no Reelo backend or analytics SDK.
+- [ ] Verify the public URLs after deployment and set the App Store Connect URLs.
+- [ ] Complete screenshots, age rating, App Privacy, and reviewer contact/account requirements.
+- [ ] Resolve third-party service authorization requirements before public review.
+
+The website documents actual behavior; `legalReady` remains false and no Terms or App Store availability is claimed.
+
 ## Other projects
 
 Re-evaluate this record before changing any other project's App Store availability or readiness flags.
