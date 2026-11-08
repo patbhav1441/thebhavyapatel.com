@@ -6,8 +6,8 @@ title: Privacy Policy
 summary: "How FHS Checklist handles business accounts, checklist activity,
   task photos, notifications, and retention for owners and authorized teams."
 status: published
-effectiveDate: "2026-10-05"
-lastUpdated: "2026-10-05"
+effectiveDate: "2026-10-18"
+lastUpdated: "2026-10-18"
 contactEmail: patelbhavya216@gmail.com
 robots: index
 readiness:
@@ -22,7 +22,7 @@ seo:
     checklist for business owners and authorized teams across industries."
 ---
 
-**The short version:** FHS Checklist is a general-purpose operations checklist for business owners and their authorized teams across industries. It has no advertising or tracking. Identifying task-completion details and related task photos are automatically deleted after seven days.
+**The short version:** FHS Checklist is an operations checklist for business owners and their authorized teams. It has no advertising or tracking. Detailed daily records and task photos expire after seven days. A separate minimal work-metrics record lasts up to 90 days or until employment ends. Private coaching and warning records remain for the duration of employment.
 
 ## Who operates the app
 
@@ -32,29 +32,37 @@ FHS Checklist is offered by Bhavya Patel with a mission to help business owners 
 
 - **Account information:** name, username, assigned business locations, role, and authentication identifiers.
 - **Checklist activity:** tasks selected or completed, completion status, completion time, and the completing person's name.
-- **Task evidence:** a new camera photo only for applicable operational tasks when a business requires proof of completion, such as cleaning or closing work. The app does not offer photo-library or file uploads.
-- **Device and security information:** push-notification token, session identifiers, request identifiers, and limited security or audit records needed to operate and protect the service.
-- **Content entered while using the app:** task comments or review results when those fields apply.
+- **Task evidence:** a new camera photo for applicable tasks requiring proof of completion, such as cleaning or closing work. Ordinary confirmation tasks can also accept an optional new photo. The app does not offer photo-library or file uploads.
+- **Device and security information:** push-notification token, designated-device and session identifiers, request identifiers, and Apple App Attest keys and counters used to protect ordering-presence requests.
+- **Work metrics:** explicit Begin Task, Pause, Resume and Finish Work activity, active and paused duration, uncertainty flags, and category-specific completion credit. These are self-reported operational measures, not a payroll time clock or an automatic employment decision.
+- **Ordering presence:** when an authorized GM or AGM requests a presence check, the app processes a fresh precise foreground location, accuracy and sample time to check the configured restaurant boundary. Coordinates are processed transiently and are not stored as a location history. There is no background location tracking.
+- **Content entered while using the app:** task help/comments, prep and waste counts, weekly cleaning completion and review, customer remake names and order details, team updates, private coaching/warnings, and signed acknowledgments.
 
 ## How information is used
 
-Information is used only to authenticate authorized users, show the correct business and location checklists, coordinate task completion, provide proof of completion, deliver checklist notifications and progress-only Live Activities, manage authorized accounts, prevent misuse, and maintain the service.
+Information is used only to authenticate authorized users, show the correct business and location checklists, coordinate tasks, prep and weekly cleaning, provide proof of completion, fulfill customer remakes, communicate team updates, record private coaching and acknowledgments, deliver work notifications and progress-only Live Activities, manage authorized accounts, prevent misuse, and maintain the service. The app does not make automatic employment or payroll decisions.
 
 ## Sharing and service providers
 
-We do not sell personal information and do not use it for third-party advertising or cross-app tracking. Data is processed by Supabase as the hosted authentication, database, and private file-storage provider. Apple processes notification delivery through Apple Push Notification service and processes App Store distribution under Apple's own terms.
+We do not sell personal information and do not use it for third-party advertising or cross-app tracking. Data is processed by Supabase as the hosted authentication, database, and private file-storage provider. Apple processes notification delivery through Apple Push Notification service, app-integrity checks through App Attest, and App Store distribution under Apple's own terms.
 
 ## Retention and deletion
 
-The person's name attached to a completed task, the exact task-completion record and time, and related task photos are automatically deleted after seven days. Anonymous location-and-day totals may remain because they do not identify a person or retain a photo or exact task record. Active account information is kept while access is needed. A deactivated account is anonymized after the configured seven-day cleanup window, subject to reliable service operation and backup lifecycle.
+Detailed daily task records, completion evidence and related photos expire after seven days. Ended personal shifts, Order Walks, prep counts, customer remake details, weekly cleaning records, team updates, guide acknowledgments and related receipts also expire after seven days (168 hours). Access ends at expiry and scheduled physical cleanup runs every five minutes. Active personal shifts end manually.
+
+A separate minimal projection of employee identity, task category/reference, timing, completion credit and uncertainty flags is retained for up to 90 days from the original work timestamp, and deleted sooner when employment ends. It does not retain photos, task instructions, comments or location samples. Reprocessing does not extend its expiry.
+
+Private coaching/warning records and their acknowledgments remain during employment and are removed when the profile is deactivated or all active organization memberships end. Prep targets, units and other restaurant configuration remain as configuration. Anonymous location-and-day totals may remain because they do not identify a person or retain a photo or exact task record.
+
+Presence grants and verification proofs are short-lived and cannot authorize work after expiry. App Attest key bindings remain while needed for the designated installation; device reset or account deactivation removes them. Active account information is kept while access is needed. A deactivated account is anonymized after the configured seven-day cleanup window, subject to reliable service operation and backup lifecycle.
 
 ## Who can see information
 
-Each person sees only their own account. Authorized team users see the shared checklists for business locations assigned to them. Managers may see task progress, task-specific completion stamps and photos, and the minimum account roster necessary for locations they manage. Business owners may see the same information across their locations and may manage manager and team accounts. Access is enforced on the server.
+Employees see their own private account details and work metrics; authorized supervisors can see the operational staff information permitted for their role. Authorized team users see the shared checklists for business locations assigned to them. Managers may see task progress, task-specific completion stamps and photos, and the minimum account roster necessary for locations they manage. Business owners may see the same information across their authorized locations and may manage manager and team accounts. Private coaching/warnings are visible only to the affected employee and authorized managers. Organization, location and role access is enforced on the server.
 
-## Notifications and camera
+## Notifications, camera and location
 
-Notification permission is optional and can be changed in iPhone Settings. Notifications are intended only for team users, with delivery paused from 12:00–2:00 PM and 6:00–7:30 PM Eastern. Camera access is requested only when current task evidence is required. Lock Screen Live Activities show checklist progress counts, not employee names or photos.
+Notification permission is optional and can be changed in iPhone Settings. Eligible work notifications are tied to an active personal shift and designated device, with configured rush-hour quiet periods. End Shift quiets work notifications and Live Activities. Camera access is requested when a person chooses to capture current task evidence. Location permission is requested only for ordering-presence checks. Declining location leaves ordinary checklist access available; GM/AGM ordering changes require a successful configured presence check. Owners can make explicitly attributed proxy changes without a location grant. Lock Screen Live Activities show shared checklist progress counts, not employee names, assignments, task details or photos.
 
 ## Security
 
