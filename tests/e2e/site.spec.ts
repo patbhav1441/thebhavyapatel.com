@@ -11,8 +11,11 @@ const publicRoutes = [
   "/zargon/",
   "/stock-predictor/",
   "/ai-therapist/",
-  "/fhs-checklist/",
-  "/fhs-checklist/privacy/",
+  "/countercrew/",
+  "/countercrew/privacy/",
+  "/countercrew/support/",
+  "/countercrew/delete-account/",
+  "/countercrew/terms/",
   "/vlogz/",
 ];
 
@@ -74,25 +77,34 @@ test("draft StuddyBuddy policy routes are not published", async ({ page }) => {
   }
 });
 
-test("FHS is positioned for businesses broadly and keeps its privacy boundaries", async ({
+test("CounterCrew lets independent restaurants sign up and discloses retention", async ({
   page,
 }) => {
-  const response = await page.goto("/fhs-checklist/privacy/");
+  await page.goto("/countercrew/");
+  await expect(page.getByText("without an invitation from us", { exact: false })).toBeVisible();
+  await page.getByRole("link", { name: "privacy policy", exact: true }).click();
+  const response = await page.request.get("/countercrew/privacy/");
   expect(response?.ok()).toBe(true);
   await expect(page.getByRole("heading", { level: 1, name: "Privacy Policy" })).toBeVisible();
   await expect(
-    page.getByText("general-purpose operations checklist", { exact: false }),
+    page.getByText("operations checklist for business owners", {
+      exact: false,
+    }),
   ).toBeVisible();
   await expect(
-    page.getByText("not limited to, sponsored by, affiliated with", { exact: false }),
+    page.getByText("Owner signup creates a separate business workspace", {
+      exact: false,
+    }),
   ).toBeVisible();
   await expect(
-    page.getByText("automatically deleted after seven days", { exact: false }).last(),
+    page
+      .getByText("Detailed daily records and task photos expire after seven days", { exact: false })
+      .last(),
   ).toBeVisible();
   await expect(page.getByText("no advertising or tracking", { exact: false })).toBeVisible();
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    "https://www.thebhavyapatel.com/fhs-checklist/privacy/",
+    "https://www.thebhavyapatel.com/countercrew/privacy/",
   );
 });
 
@@ -115,7 +127,7 @@ test("mobile menu opens, closes with Escape, and returns focus", async ({ page }
 });
 
 test("representative pages have no serious axe violations", async ({ page }) => {
-  for (const route of ["/", "/studdybuddy/", "/fhs-checklist/privacy/", "/contact/"]) {
+  for (const route of ["/", "/studdybuddy/", "/countercrew/privacy/", "/contact/"]) {
     await page.goto(route);
     const results = await new AxeBuilder({ page }).analyze();
     expect(
